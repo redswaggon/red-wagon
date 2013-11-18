@@ -28,7 +28,7 @@ RedWagon::Application.configure do
   config.assets.debug = true
 
 
-  FACEBOOK_KEY = "1477782562447192"
-  FACEBOOK_SECRET =  "2cb6067ade5e2e927e37145af73c1993"
+  FACEBOOK_APP_ID = '1477782562447192'
+  FACEBOOK_SECRET =  '2cb6067ade5e2e927e37145af73c1993'
 
 end
