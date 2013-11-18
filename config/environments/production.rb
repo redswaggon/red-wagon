@@ -78,7 +78,7 @@ RedWagon::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  FACEBOOK_APP_ID = "1477782562447192"
-  FACEBOOK_SECRET =  "2cb6067ade5e2e927e37145af73c1993"
+  FACEBOOK_APP_ID = 1477782562447192
+  FACEBOOK_SECRET =  2cb6067ade5e2e927e37145af73c1993
 
 end
