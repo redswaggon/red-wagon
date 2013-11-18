@@ -1,12 +1,12 @@
 RedWagon::Application.routes.draw do
-  root :to => 'wagons#index'
+  root :to => 'users#index'
 
-  get '/auth/facebook/callback', to: 'sessions#create'
-  get '/auth/failure', to: redirect('/')
-  get '/signout', to: 'sessions#destroy', as: 'signout'
+  match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
+  match '/auth/failure', to: redirect('users#index'), via: [:get, :post]
+  match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   get '/signin' => redirect('/auth/facebook')
 
-  post 'wagons/:id' => 'wagons#update'
+  post 'users/:id' => 'users#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

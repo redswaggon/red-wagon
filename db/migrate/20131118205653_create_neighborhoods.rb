@@ -5,9 +5,9 @@ class CreateNeighborhoods < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :neighborhoods_wagons do |t|
+    create_table :neighborhoods_users do |t|
       t.belongs_to :neighborhood
-      t.belongs_to :wagon
+      t.belongs_to :user
     end
   end
 end

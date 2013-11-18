@@ -1,3 +1,3 @@
 class Like < ActiveRecord::Base
-  belongs_to :wagon
+  belongs_to :user
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118205653) do
+ActiveRecord::Schema.define(version: 20131118215353) do
 
   create_table "items", force: true do |t|
     t.string   "name"
@@ -36,14 +36,17 @@ ActiveRecord::Schema.define(version: 20131118205653) do
     t.datetime "updated_at"
   end
 
-  create_table "neighborhoods_wagons", force: true do |t|
+  create_table "neighborhoods_users", force: true do |t|
     t.integer "neighborhood_id"
-    t.integer "wagon_id"
+    t.integer "user_id"
   end
 
-  create_table "wagons", force: true do |t|
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
     t.string   "name"
-    t.string   "email"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

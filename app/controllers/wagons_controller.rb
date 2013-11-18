@@ -1,2 +1,0 @@
-class WagonsController < ApplicationController
-end
