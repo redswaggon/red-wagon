@@ -1,5 +1,12 @@
 RedWagon::Application.routes.draw do
-  resources :wagons
+  root :to => 'wagons#index'
+
+  get '/auth/facebook/callback', to: 'sessions#create'
+  get '/auth/failure', to: redirect('/')
+  get '/signout', to: 'sessions#destroy', as: 'signout'
+  get '/signin' => redirect('/auth/facebook')
+
+  post 'wagons/:id' => 'wagons#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
