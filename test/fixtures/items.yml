@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  wagon_id: 
+  photo_file_path: MyString
+
+two:
+  name: MyString
+  wagon_id: 
+  photo_file_path: MyString
