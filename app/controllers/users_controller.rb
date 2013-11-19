@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
+      @user.neighborhoods = Neighborhood.find(params[:user][:neighborhoods])
       @user.save!
       redirect_to root_path
     else
