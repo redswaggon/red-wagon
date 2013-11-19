@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user
-  skip_before_action :require_login
+  # skip_before_action :require_login
 
   def index
     5.times do 
-      @user.items.build
-    end
+      current_user.items.build
+    end if current_user
   end
 
   def edit
@@ -20,9 +19,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
-      @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
-      @user.save!
+    if current_user.update_attributes(user_params)
+      current_user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
+      current_user.save!
       redirect_to root_path
     else
       render "can't update"
@@ -39,10 +38,6 @@ class UsersController < ApplicationController
 
   def item_params
     params[:item]
-  end
-
-  def set_user
-    @user = current_user
   end
 
   def user_params
