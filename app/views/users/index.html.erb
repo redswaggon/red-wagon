@@ -7,27 +7,29 @@
   <% end %>
 </div>
 
-<%= form_for @user, action: "update", controller: "user" do |f| %>
+<% if current_user %>
+  <%= form_for @user, action: "update", controller: "user" do |f| %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
 
-  <div class="field">
-    <%= collection_select :user, Neighborhood.all, :id, :name %>
-  </div>
+    <div class="field">
+      <%= collection_select :user, Neighborhood.all, :id, :name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :photo %><br />
-    <%= f.file_field :photo %>
-  </div>
+    <div class="field">
+      <%= f.label :photo %><br />
+      <%= f.file_field :photo %>
+    </div>
 
-  <%= f.submit "Submit Changes" %>
+    <%= f.submit "Submit Changes" %>
 
-<% end %>
+  <% end %>
 
 
-<% image_tag User.items.all do |photo| %>
-  <%= photo.url(:medium) %>
+  <% image_tag User.items.all do |photo| %>
+    <%= photo.url(:medium) %>
+  <% end %>
 <% end %>
