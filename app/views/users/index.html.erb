@@ -8,7 +8,7 @@
 </div>
 
 <% if current_user %>
-  <%= form_for @user, action: "update" do |f| %>
+  <%= form_for @user, :url=>{:action=>'update'} do |f| %>
 
     <div class="field">
       <%= f.label :email %>
@@ -19,15 +19,14 @@
       <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %>
     </div>
 
-    <div class="field">
-      <%= f.label :photo %><br />
-      <%= f.file_field :photo %>
-    </div>
+<!--     <div class="field">
+      <%#= f.label  %><br />
+      <%#= f.file_field  %>
+    </div> -->
 
     <%= f.submit "Submit Changes" %>
 
   <% end %>
-
 
   <% image_tag User.items.all do |photo| %>
     <%= photo.url(:medium) %>

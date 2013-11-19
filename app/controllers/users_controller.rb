@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @item = User.items.build
   end
 
+  def show
+    
+  end
+
   # def update
   #   @item = User.items.find(params[:item_id])
   # end
