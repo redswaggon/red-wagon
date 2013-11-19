@@ -8,11 +8,17 @@ RedWagon::Application.routes.draw do
 
   root :to => 'users#index'
 
-  get 'users/:username' => 'users#show_wagon'
-  get 'users/error' => 'users#error'
-  resources :users, except: [] do
-    resources :items
-  end
+  get '/users/:username' => 'users#show_wagon'
+  get '/users/error' => 'users#error'
+  
+  get '/users/index' => 'users#index'
+  get '/users/new' => 'users#new', as: 'new_user'
+  get '/users/:username/edit' => 'users#edit', as: 'edit_user'
+  get '/users/show/:username' => 'users#show', as: 'user'
+  get '/users/destroy/:username' => 'users#destroy'
+  post '/users/update/:username' => 'users#update'
+  post '/users/create/:username' => 'users#create'
+  post '/users/update/:username' => 'users#update'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
