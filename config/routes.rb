@@ -16,10 +16,13 @@ RedWagon::Application.routes.draw do
   get '/users/:username/edit' => 'users#edit', as: 'edit_user'
   get '/users/show/:username' => 'users#show', as: 'user'
   get '/users/destroy/:username' => 'users#destroy'
-  post '/users/update/:username' => 'users#update'
+  put '/users/update/:username' => 'users#update'
+  patch '/users/update/:username' => 'users#update'
   post '/users/create/:username' => 'users#create'
-  post '/users/update/:username' => 'users#update'
 
+  post '/users/:user_id/items/:id' => 'items#create'
+  patch '/users/:user_id/items/:id' => 'items#update'
+  put '/users/:user_id/items/:id' => 'items#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    @user.destroy.save
   end
 
   private
