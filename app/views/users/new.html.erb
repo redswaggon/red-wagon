@@ -1,0 +1,24 @@
+<%= form_for @user do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %><br>
+  </div>
+
+  <div class="field">
+    <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %>
+  </div>
+
+  <%= f.submit "Create User" %>
+
+<% end %>

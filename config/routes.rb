@@ -6,14 +6,29 @@ RedWagon::Application.routes.draw do
   # match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   # post 'users/:id' => 'users#update'
 
-  # get  '/users/:id/items' => 'items#new'
-  resources :users do
-    resources :items
-  end
+  root :to => 'users#index'
+
 
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
 
+
+  get '/users/error' => 'users#error'
+  
+  get '/users' => 'users#index', as: 'users'
+  post '/users' => 'users#create'
+  get '/users/new' => 'users#new', as: 'new_user'
+  get '/users/:username/edit' => 'users#edit', as: 'edit_user'
+  get '/users/:username' => 'users#show', as: 'user'
+  get '/users/:username' => 'users#destroy'
+  put '/users/:username' => 'users#update'
+  patch '/users/:username' => 'users#update'
+  
+  get '/users/show_wagon/:username' => 'users#show_wagon'
+
+  post '/users/:user_id/items/:id' => 'items#create'
+  patch '/users/:user_id/items/:id' => 'items#update'
+  put '/users/:user_id/items/:id' => 'items#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
