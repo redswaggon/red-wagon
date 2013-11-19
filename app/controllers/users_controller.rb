@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user
-  skip_before_action :require_login, :only => :index
+  skip_before_action :require_login
 
   def index
-    @items = User.items
+    
   end
 
   def edit
-    @item = User.items.find(params[:item_id])
   end
 
   def create
