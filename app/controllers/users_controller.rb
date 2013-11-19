@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :authenticate, only: [:index]
+  # skip_before_action :require_login, only: [:index]
 
   def index
         
