@@ -4,7 +4,7 @@ RedWagon::Application.routes.draw do
   match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
   match '/auth/failure', to: redirect('users#index'), via: [:get, :post]
   match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  get '/signin' => redirect('/auth/facebook')
+  get '/signin' => redirect('/auth/facebook'), as: 'signin'
 
   post 'users/:id' => 'users#update'
 

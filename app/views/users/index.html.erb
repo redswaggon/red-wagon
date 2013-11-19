@@ -1,1 +1,7 @@
-Test
+<h2>Profile<h2>
+
+<%= form_for @user, action: "update", controller: "user" do |f| %>
+
+
+  <%= f.submit "Submit Changes" %>
+<% end %>
