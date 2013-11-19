@@ -14,12 +14,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    # accepts a param with id
   end
 
-  # def update
-  #   @item = User.items.find(params[:item_id])
-  # end
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to root_path
+    else
+      render "can't update"
+    end
+    # @item = User.items.find(params[:item_id])
+  end
 
   def destroy
     @item.destroy
