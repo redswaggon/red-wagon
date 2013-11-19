@@ -16,7 +16,7 @@
     </div>
 
     <div class="field">
-      <%= collection_select :user, Neighborhood.all, :id, :name %>
+      <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %>
     </div>
 
     <div class="field">
