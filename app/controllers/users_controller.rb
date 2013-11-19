@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
+      @user.save!
       redirect_to root_path
     else
       render "can't update"
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name,:items)
+    params.require(:user).permit(:name,:items,:email)
   end
 
   def item_params
