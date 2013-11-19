@@ -32,4 +32,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def user_params
+    params.require(:user).permit(:name,:items)
+  end
+
+  def item_params
+    params.require(:item).permit(:name,:photo)
+  end
+
 end
