@@ -6,7 +6,10 @@ RedWagon::Application.routes.draw do
   # match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   # post 'users/:id' => 'users#update'
 
-  # get  '/users/:id/items' => 'items#new'
+  root :to => 'users#index'
+
+  get 'swaggon/:username' => 'users#swaggon'
+  get 'users/error' => 'users#error'
   resources :users do
     resources :items
   end

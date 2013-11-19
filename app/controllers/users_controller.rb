@@ -1,51 +1,61 @@
 class UsersController < ApplicationController
   # skip_before_action :require_login
+  before_action :set_user, only: [:edit, :create, :show, :swaggon, :update, :destroy]
 
   def index
-    5.times do 
-      current_user.items.build
-    end if current_user
   end
 
   def edit
   end
 
+  def new
+    @user = User.new
+  end
+
   def create
-    @item = User.items.build
+    if @user.create(user_params)
+      @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
+      @user.save!
+      redirect_to @user
+    else
+      render "users/error"
+    end
   end
 
   def show
-    # accepts a param with id
   end
 
+  def swaggon
+    # we have @user and params[:username] of another wagon
+    # Find all users in his hoods.
+    # Picks a random person and displays that person's wagon
+  end
+
+  def 
+
   def update
-    if current_user.update_attributes(user_params)
-      current_user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
-      current_user.save!
-      redirect_to root_path
+    if @user.update_attributes(user_params)
+      @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
+      @user.save!
+      redirect_to @user
     else
-      render "can't update"
+      render "users/error"
     end
     # @item = User.items.find(params[:item_id])
   end
 
   def destroy
-    @item.destroy
-    redirect_to users_path
+
   end
 
   private
 
-  def item_params
-    params[:item]
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:name,:items,:email)
-  end
-
-  def item_params
-    params.require(:item).permit(:name,:photo)
+    params.require(:user).permit(:name, :email)
   end
 
 end

@@ -1,0 +1,14 @@
+<%= form_for @user, url:{action: :update, controller: :users, id: @user.id} do |f| %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %>
+  </div>
+
+  <%= f.submit "Submit Changes" %>
+
+<% end %>
