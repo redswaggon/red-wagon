@@ -8,9 +8,9 @@ RedWagon::Application.routes.draw do
 
   root :to => 'users#index'
 
-  get 'swaggon/:username' => 'users#swaggon'
+  get 'users/:username' => 'users#show_wagon'
   get 'users/error' => 'users#error'
-  resources :users do
+  resources :users, except: [] do
     resources :items
   end
 
