@@ -8,17 +8,18 @@ RedWagon::Application.routes.draw do
 
   root :to => 'users#index'
 
-  get '/users/:username' => 'users#show_wagon'
   get '/users/error' => 'users#error'
   
-  get '/users/index' => 'users#index'
+  get '/users' => 'users#index', as: 'users'
+  post '/users' => 'users#create'
   get '/users/new' => 'users#new', as: 'new_user'
   get '/users/:username/edit' => 'users#edit', as: 'edit_user'
-  get '/users/show/:username' => 'users#show', as: 'user'
-  get '/users/destroy/:username' => 'users#destroy'
-  put '/users/update/:username' => 'users#update'
-  patch '/users/update/:username' => 'users#update'
-  post '/users/create/:username' => 'users#create'
+  get '/users/:username' => 'users#show', as: 'user'
+  get '/users/:username' => 'users#destroy'
+  put '/users/:username' => 'users#update'
+  patch '/users/:username' => 'users#update'
+  
+  get '/users/show_wagon/:username' => 'users#show_wagon'
 
   post '/users/:user_id/items/:id' => 'items#create'
   patch '/users/:user_id/items/:id' => 'items#update'
