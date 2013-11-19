@@ -1,6 +1,6 @@
 RedWagon::Application.routes.draw do
   # OMNIAUTH FACEBOOK
-  # root :to => 'users#index'
+  root :to => 'users#index'
   # match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
   # match '/auth/failure', to: redirect('/'), via: [:get, :post]
   # match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
@@ -10,6 +10,9 @@ RedWagon::Application.routes.draw do
   resources :users do
     resources :items
   end
+
+  get '/login' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
