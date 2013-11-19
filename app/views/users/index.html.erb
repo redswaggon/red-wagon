@@ -8,7 +8,7 @@
 </div>
 
 <% if current_user %>
-  <%= form_for @user, :url=>{:action=>'update'} do |f| %>
+  <%= form_for @user, :url=>{:action=>'update', controller: 'users'} do |f| %>
 
     <div class="field">
       <%= f.label :email %>
