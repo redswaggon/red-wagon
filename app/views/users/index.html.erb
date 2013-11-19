@@ -6,11 +6,23 @@
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
+<!-- 
+<%= #form_for @user, action: "update", controller: "user" do |f| %>
 
-<%= form_for @user, action: "update", controller: "user" do |f| %>
+  <%= #f.@user name %>
+  <%= #f.@user email %>
 
-  <%= f.@user name %>
-  <%= f.@user
 
-  <%= f.submit "Submit Changes" %>
-<% end %>
+  <%= #f.submit "Submit Changes" %>
+<% #end %> -->
+
+<div class="field">
+  <% form_for @user, action: "update", controller: "users" do |f|
+  <%= f.label :photo %><br />
+  <%= f.file_field :photo %>
+  <%= f.submit "Upload Photo" %>
+</div>
+
+<% image_tag User.items.all do |photo| %>
+<%= photo.url(:medium) %>
+<%= end %>

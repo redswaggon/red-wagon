@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.references :user, index: true
-      t.string :photo_file_path
+      t.string :photo
       t.timestamps
     end
   end
