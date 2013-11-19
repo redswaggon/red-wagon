@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   skip_before_action :require_login
 
   def index
-    
+    5.times do 
+      @user.items.build
+    end
   end
 
   def edit
@@ -19,7 +21,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      @user.neighborhoods = Neighborhood.find(params[:user][:neighborhoods])
+      @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
       @user.save!
       redirect_to root_path
     else

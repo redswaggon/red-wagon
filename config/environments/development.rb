@@ -29,7 +29,7 @@ RedWagon::Application.configure do
 
   FACEBOOK_APP_ID = ENV['FACEBOOK_APP_ID']
   FACEBOOK_SECRET = ENV['FACEBOOK_SECRET']
-
+  
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {

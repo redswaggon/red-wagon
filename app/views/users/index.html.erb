@@ -19,10 +19,12 @@
       <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %>
     </div>
 
-<!--     <div class="field">
-      <%#= f.label  %><br />
-      <%#= f.file_field  %>
-    </div> -->
+    <div class="field">
+      <%= f.fields_for :items do |item_form| %>
+      <%= item_form.label :photo %> <br>
+      <%= item_form.file_field :photo %>
+      <% end %>
+    </div>
 
     <%= f.submit "Submit Changes" %>
 
