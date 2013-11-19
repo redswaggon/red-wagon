@@ -15,17 +15,17 @@ ActiveRecord::Schema.define(version: 20131118215353) do
 
   create_table "items", force: true do |t|
     t.string   "name"
-    t.integer  "wagon_id"
+    t.integer  "user_id"
     t.string   "photo_file_path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "items", ["wagon_id"], name: "index_items_on_wagon_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "likes", force: true do |t|
-    t.integer  "wagon_id"
-    t.integer  "liked_wagon"
+    t.integer  "user_id"
+    t.integer  "liked_user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
