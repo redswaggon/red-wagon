@@ -9,8 +9,11 @@
 
 <%= form_for @user, action: "update", controller: "user" do |f| %>
 
-  <%= f.@user name %>
-  <%= f.@user
+  <%= f.label :email %>
+  <%= f.text_field :email %>
 
+  <%= collection_select :user, Neighborhood.all, :id, :name %>
+  
   <%= f.submit "Submit Changes" %>
+
 <% end %>
