@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ../../../vendor/assets/jQuery-File-Upload-9.3.0/js/
 //= require_tree .
