@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     if (@user = User.create(user_params))
       @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
       @user.save!
+      login(@user.username)
       redirect_to @user
     else
       render "users/error"

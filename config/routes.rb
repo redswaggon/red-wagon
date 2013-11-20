@@ -1,6 +1,5 @@
 RedWagon::Application.routes.draw do
   # OMNIAUTH FACEBOOK
-  # root :to => 'users#index'
   # match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
   # match '/auth/failure', to: redirect('/'), via: [:get, :post]
   # match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
@@ -8,7 +7,15 @@ RedWagon::Application.routes.draw do
 
   root :to => 'users#index'
 
+
+  get '/login' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
+
+
+
   get '/users/error' => 'users#error', as: 'error'
+
   
   get '/users' => 'users#index', as: 'users'
   post '/users' => 'users#create'
