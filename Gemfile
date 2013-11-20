@@ -6,6 +6,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'pry'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
