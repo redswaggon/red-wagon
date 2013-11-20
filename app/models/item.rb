@@ -6,4 +6,5 @@ class Item < ActiveRecord::Base
     medium: '300x300>',
     default_url: 'assets/images/missing.png'
   }
+  # validates_attachment :photo, content_type: { content_type: "image/jpg" }
 end
