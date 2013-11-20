@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :create, :show, :show_wagon, :update, :destroy]
-  before_action :check_user, except: [:show_wagon]
+  before_action :set_user, only: [:edit, :show, :show_wagon, :update, :destroy]
+  # before_action :check_user, except: [:show_wagon]
 
   def index
+    @users = User.all
   end
 
   def edit
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if @user.create(user_params)
+    if (@user = User.create(user_params))
       @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
       @user.save!
       redirect_to @user
@@ -43,13 +44,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy.save
+    @user.destroy
+    redirect_to root_url
   end
 
   private
 
   def check_user
-    redirect_to root_path unless session[:user_id] == params[:username]
+    redirect_to error_path unless session[:user_id] == params[:username]
   end
 
   def set_user
@@ -57,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :username, :email)
   end
 
 end

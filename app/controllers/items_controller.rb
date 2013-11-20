@@ -1,16 +1,19 @@
 class ItemsController < ApplicationController
-  def update
-    set_item
-    if @item.update_attributes(item_params)
-      render json: @item
-    else 
-      # send some sort of error via ajax?
-    end
-  end
 
   def create
     if @item = Item.create(item_params)
-      render json: @item
+
+      redirect_to root_path
+      # render json: @item
+    end
+  end
+
+  def update
+    if @item.update_attributes(item_params)
+      redirect_to root_path
+      # render json: @item
+    else 
+      # send some sort of error via ajax?
     end
   end
 
