@@ -16,11 +16,13 @@ The button, when clicked, will reveal <br>
 The button will disappear after @user.items.size >= 5.</p>
 
 <div class="photos">
-  <% @user.items.each_with_index do |item, i| %>
-    <div class="photo<%= i+1 %>">
+  <% @user.items.each do |item| %>
+    <div class="photo">
       <%= image_tag item.url(:medium) %>
     </div>
   <% end %>
 </div>
 
-<button id="add_photo">Add Photo (Limit 5)</button>
+<div id="add_photo">
+  <%= f.submit "Add Photo (Limit 5)" %>
+</div>
