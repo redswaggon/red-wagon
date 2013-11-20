@@ -8,22 +8,26 @@ RedWagon::Application.routes.draw do
 
   root :to => 'users#index'
 
-  get '/users/error' => 'users#error'
+  get '/users/error' => 'users#error', as: 'error'
   
   get '/users' => 'users#index', as: 'users'
   post '/users' => 'users#create'
   get '/users/new' => 'users#new', as: 'new_user'
   get '/users/:username/edit' => 'users#edit', as: 'edit_user'
   get '/users/:username' => 'users#show', as: 'user'
-  get '/users/:username' => 'users#destroy'
+  delete '/users/:username' => 'users#destroy'
   put '/users/:username' => 'users#update'
   patch '/users/:username' => 'users#update'
   
   get '/users/show_wagon/:username' => 'users#show_wagon'
 
-  post '/users/:user_id/items/:id' => 'items#create'
-  patch '/users/:user_id/items/:id' => 'items#update'
-  put '/users/:user_id/items/:id' => 'items#update'
+  # get '/users/:username/items/new' => 'items#new', as: 'new_user_item'
+  get '/users/:username/items' => 'items#edit', as: 'edit_user_items'
+  get '/users/:username/items/:id' => 'items#show', as: 'user_item'
+  delete '/users/:username/items/:id' => 'items#destroy'
+  post '/users/:username/items/:id' => 'items#create'
+  patch '/users/:username/items/:id' => 'items#update'
+  put '/users/:username/items/:id' => 'items#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

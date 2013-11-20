@@ -6,3 +6,19 @@
 <%= @user.email %>
 
 <p><%= link_to "Edit", edit_user_path(@user) %> your profile.</p>
+<p><%= button_to 'Delete your account', @user, method: :delete %></p>
+
+<p>Create an "add photo" button.
+
+JS: 
+The button has a counter, which starts off at the number of images
+The button, when clicked, will reveal 
+The button will disappear after @user.items.size >= 5.</p>
+
+<div class="photos">
+  <% @user.items.each do |item| %>
+    <div class="photo">
+      <%= image_tag item.url(:medium) %>
+    </div>   
+  <% end %>
+</div>

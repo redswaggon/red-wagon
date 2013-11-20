@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :neighborhoods
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['photo'].blank? }, allow_destroy: true
 
+  def to_param
+    username
+  end
   # def self.from_omniauth(auth)
   #   where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
   #     user.provider = auth.provider

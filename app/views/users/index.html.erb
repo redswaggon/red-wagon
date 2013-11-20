@@ -1,0 +1,12 @@
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.username %></li>
+    
+    <ul>
+      <% user.items.each do |item| %>
+        <li> Item: <%= item.name %></li>
+        <li> Item: <%= item.photo %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
