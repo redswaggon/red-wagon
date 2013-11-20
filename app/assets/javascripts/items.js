@@ -1,22 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+// $(document).ready(function(){
 
-$(document).ready(function{
+//   $('#submit_new_photo').click(function(){
+//       // var data;
+//       // data = 
 
-  $('#submit_new_photo').click(function(){
-      var data;
-      data = 
-
-    $.post("/users/#{@user.username}/items", data, function(new_image_attributes){
-        $('.photos').append(
-          # Append the html necessary to show the image using the JSON. Must fix the setup of the paperclip images
-          );
+//     $.post("/users/#{@user.username}/items", data, function(new_image_attributes){
+//         $('.photos').append(
+//           );
         
-        var count = $('.photo').length;
-        if count >= 5
-          $('#add_photo_form').hide();
-        end
-    });
-  });
-});
+//         var count = $('.photo').length;
+//         if (count >= 5) {
+//           $('#add_photo_form').hide();
+//         };
+//     });
+//   });
+// });

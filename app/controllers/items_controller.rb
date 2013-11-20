@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       photo: @item.photo,
       user_id: @item.user_id
     }
-    render json: @item
+    # render json: @item
   end
 
   def update
@@ -25,7 +25,8 @@ class ItemsController < ApplicationController
       photo: @item.photo,
       user_id: @item.user_id
     }
-    render json: @item
+    redirect_to @user
+    # render json: @item
   end
 
   def destroy

@@ -5,17 +5,23 @@
 <%= @user.name %><br>
 <%= @user.email %><br>
 
-<p><%= link_to "Edit you profile", edit_user_path(@user) %></p>
+<span class="edit_link">Edit your profile</span>
+
 <p><%= button_to 'Delete your account', @user, method: :delete %></p>
 
 <div class="photos">
   <% @user.items.each do |item| %>
     <div class="photo">
-      <%= image_tag item.photo.url(:medium) %><br>
+      <%= image_tag item.photo.url(:square) %><br>
       <%= item.name %><br>
     </div>
   <% end %>
 </div>
+
+<div id="cover"></div>
+
+<iframe id="edit_frame" width="300px" height="200px" src="<%= edit_user_path %>">
+  </iframe>
 
 <!-- <div id="add_photo_form">
   <h3>Your Wagon:</h3>
