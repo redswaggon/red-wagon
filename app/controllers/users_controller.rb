@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @new_item = Item.new
   end
 
   def show_wagon
