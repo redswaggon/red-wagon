@@ -1,16 +1,8 @@
 class ItemsController < ApplicationController
 
-  def create
-    @user = User.find_by(id: item_params[:user_id])
-    @user.items.build(item_params)
-    @user.save
-    @item = @user.items.last
-    item = {
-      name: @item.name,
-      photo: @item.photo,
-      user_id: @item.user_id
-    }
-    # render json: @item
+  def edit
+    @user = User.find_by(username: params[:username])
+    @item = Item.find(params[:id])
   end
 
   def update
@@ -26,6 +18,18 @@ class ItemsController < ApplicationController
       user_id: @item.user_id
     }
     redirect_to @user
+  end
+
+  def create
+    @user = User.find_by(id: item_params[:user_id])
+    @user.items.build(item_params)
+    @user.save
+    @item = @user.items.last
+    item = {
+      name: @item.name,
+      photo: @item.photo,
+      user_id: @item.user_id
+    }
     # render json: @item
   end
 

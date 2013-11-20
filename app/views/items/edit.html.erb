@@ -1,0 +1,21 @@
+<h2>Edit <%= @user.name %>'s Wagon</h2>
+
+<div id="add_photo_form">
+  <%= form_for @item, url: {action: "update", username: params[:username], id: params[:id]} do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %><br />
+    </div>
+    
+    <div class="field">
+      <%= f.label :photo %><br />
+      <%= f.file_field :photo %><br />
+    </div>
+
+      <%= f.hidden_field :user_id, value: params[:id] %><br />
+
+    <div id="submit_new_photo">
+      <%= f.submit "Add Photo (Limit 5)" %>
+    </div>
+  <% end %>
+</div>

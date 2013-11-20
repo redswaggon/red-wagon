@@ -11,11 +11,11 @@
 
 #edit_frame{
   position: fixed;
-  height: auto;
-  width: 33%;
+  height: 60%;
+  width: 60%;
   top: 20%;
   background-color: rgba(255,255,255,1);
   z-index: 20;
-  left: 33%;
+  left: 20%;
   display: none;
 }

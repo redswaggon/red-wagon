@@ -12,10 +12,7 @@ RedWagon::Application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
 
-
-
   get '/users/error' => 'users#error', as: 'error'
-
   
   get '/users' => 'users#index', as: 'users'
   post '/users' => 'users#create'
@@ -29,10 +26,10 @@ RedWagon::Application.routes.draw do
   get '/users/show_wagon/:username' => 'users#show_wagon'
 
   # get '/users/:username/items/new' => 'items#new', as: 'new_user_item'
-  get '/users/:username/items' => 'items#edit', as: 'edit_user_items'
+  get '/users/:username/items/:id/edit' => 'items#edit', as: 'edit_user_items'
   get '/users/:username/items/:id' => 'items#show', as: 'user_item'
   delete '/users/:username/items/:id' => 'items#destroy'
-  patch '/users/:username/items/:id' => 'items#update'
+  patch '/users/:username/items/:id' => 'items#update', as: 'item'
   put '/users/:username/items/:id' => 'items#update'
   post '/users/:username/items' => 'items#create', as: 'items'
 

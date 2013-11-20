@@ -1,8 +1,8 @@
-<h2>Hello <%= @user.username %>!</h2>
+<h2>Hello <%= @user.name %>!</h2>
 
 <h3>Here is your info.</h3>
 
-<%= @user.name %><br>
+<span class="username"><%= @user.username %></span><br>
 <%= @user.email %><br>
 
 <span class="edit_link">Edit your profile</span>
@@ -10,8 +10,8 @@
 <p><%= button_to 'Delete your account', @user, method: :delete %></p>
 
 <div class="photos">
-  <% @user.items.each do |item| %>
-    <div class="photo">
+  <% @user.items.each_with_index do |item, i| %>
+    <div class="photo" id="<%= i+1 %>">
       <%= image_tag item.photo.url(:square) %><br>
       <%= item.name %><br>
     </div>
@@ -20,26 +20,14 @@
 
 <div id="cover"></div>
 
-<iframe id="edit_frame" width="300px" height="200px" src="<%= edit_user_path %>">
-  </iframe>
+<iframe id="edit_frame" src=""></iframe>
 
-<!-- <div id="add_photo_form">
-  <h3>Your Wagon:</h3>
-  <%#= form_for @new_item do |f| %>
-    <div class="field">
-      <%#= f.label :name %><br />
-      <%#= f.text_field :name %><br />
-    </div>
-    
-    <div class="field">
-      <%#= f.label :photo %><br />
-      <%#= f.file_field :photo %><br />
-    </div>
+  DEALING WITH IFRAMES: :) <br>
+   - JQuery on main page listens for click on any iframe submit. If hit, fadeTo(200,0) for the iframe.<br>
+   - iframe Submit button will send a post request to items#update, then redirect back to edit_user_path(@user)<br>
 
-      <%#= f.hidden_field :user_id, value: @user.id %><br />
 
-    <div id="submit_new_photo">
-      <%#= f.submit "Add Photo (Limit 5)" %>
-    </div>
-  <%# end %>
-</div> -->
+
+
+
+
