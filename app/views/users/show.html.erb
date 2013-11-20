@@ -18,8 +18,8 @@ The button will disappear after @user.items.size >= 5.</p>
 <div class="photos">
   <% @user.items.each do |item| %>
     <div class="photo">
-      <%= image_tag item.url(:medium) %><br>
-      <%= image.name %>
+      <%= image_tag item.photo.url(:medium) %><br>
+  <!--     <image.name %> -->
     </div>
   <% end %>
 </div>
