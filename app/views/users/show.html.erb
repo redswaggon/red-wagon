@@ -8,39 +8,32 @@
 <p><%= link_to "Edit you profile", edit_user_path(@user) %></p>
 <p><%= button_to 'Delete your account', @user, method: :delete %></p>
 
-<p>Create an "add photo" button.<br>
-<br>
-JS:<br>
-The button has a counter, which starts off at the number of images<br>
-The button, when clicked, will reveal <br>
-The button will disappear after @user.items.size >= 5.</p>
-
 <div class="photos">
   <% @user.items.each do |item| %>
     <div class="photo">
       <%= image_tag item.photo.url(:medium) %><br>
-  <!--     <image.name %> -->
+      <%= item.name %><br>
     </div>
   <% end %>
 </div>
 
-<div id="add_photo_form">
-  <h3>Add Item to Wagon</h3>
-  <%= form_for @new_item do |f| %>
+<!-- <div id="add_photo_form">
+  <h3>Your Wagon:</h3>
+  <%#= form_for @new_item do |f| %>
     <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %><br />
+      <%#= f.label :name %><br />
+      <%#= f.text_field :name %><br />
     </div>
     
     <div class="field">
-      <%= f.label :photo %><br />
-      <%= f.file_field :photo %><br />
+      <%#= f.label :photo %><br />
+      <%#= f.file_field :photo %><br />
     </div>
 
-      <%= f.hidden_field :user_id, value: @user.id %><br />
+      <%#= f.hidden_field :user_id, value: @user.id %><br />
 
     <div id="submit_new_photo">
-      <%= f.submit "Add Photo (Limit 5)" %>
+      <%#= f.submit "Add Photo (Limit 5)" %>
     </div>
-  <% end %>
-</div>
+  <%# end %>
+</div> -->

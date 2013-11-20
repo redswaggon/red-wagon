@@ -14,9 +14,17 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update_attributes(item_params)
-    # Leaving the rest for you to get a chance to practice some AJAX
-
+    @user = User.find_by(id: item_params[:user_id])
+    @user.items.each do |item|
+      item.update_attributes(item_params)
+    end
+    @user.save
+    @item = @user.items.last
+    item = {
+      name: @item.name,
+      photo: @item.photo,
+      user_id: @item.user_id
+    }
     render json: @item
   end
 

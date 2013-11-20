@@ -5,6 +5,9 @@
 $(document).ready(function{
 
   $('#submit_new_photo').click(function(){
+      var data;
+      data = 
+
     $.post("/users/#{@user.username}/items", data, function(new_image_attributes){
         $('.photos').append(
           # Append the html necessary to show the image using the JSON. Must fix the setup of the paperclip images

@@ -38,7 +38,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
 # gem 'omniauth-oauth2', '~>1.0.3'
-gem 'omniauth-facebook'
+# gem 'omniauth-facebook'
+# gem 'jquery-fileupload-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
