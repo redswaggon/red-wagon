@@ -1,11 +1,16 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, :only => [:new, :create]
+  # skip_before_action :require_login, :only => [:new, :create]
   
   def new
   end
 
   def create
     login(params[:username])
+    redirect_to root_path
+  end
+
+  def destroy
+    session[:user_id] = nil
     redirect_to root_path
   end
 
@@ -19,7 +24,3 @@ end
   #   redirect_to root_url
   # end
 
-  # def destroy
-  #   session[:user_id] = nil
-  #   redirect_to root_url
-  # end

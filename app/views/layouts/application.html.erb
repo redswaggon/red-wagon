@@ -2,18 +2,20 @@
 <html>
 <head>
   <title>Red Wagon</title>
-
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <nav>
+  <h1>Red Wagon</h1>
   <ul>
+    <%= link_to "Root", root_path %>
     <% if logged_in? %>
-      <li> Logged In As:<%= current_user.username %> </li>
-      <% link_to "Logout", "#" %>
+      <li> Logged In As:  <%= current_user.username %> </li>
+      <%= button_to "Logout", destroy_session_path %>
     <% else %>
-      <li> <%= link_to "Login", login_path %> </li>
+      <%= link_to "Login", login_path %>
+      <%= link_to "New User", new_user_path %>
     <% end %>
   </ul>
 </nav>

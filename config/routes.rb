@@ -10,6 +10,7 @@ RedWagon::Application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
 
 
 
