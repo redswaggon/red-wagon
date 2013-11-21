@@ -21,13 +21,19 @@
 <div id="cover"></div>
 
 <iframe id="edit_frame" src=""></iframe>
+<!-- 
+  IFRAMES: order of ops <br>
+   *FINISHED SUBMITTING. NOW WHU'?
+   -> GO TO DUMMY PAGE: 
+      - Display success or not for a hot second.
+      - Get the image to update in the original page.
 
-  DEALING WITH IFRAMES: :) <br>
+                var timestamp = new Date().getTime();
+                $(this).attr('src',$(this).attr('src') + '?' +timestamp );
+
    - JQuery on main page listens for click on any iframe submit. If hit, fadeTo(200,0) for the iframe.<br>
-   - iframe Submit button will send a post request to items#update, then redirect back to edit_user_path(@user)<br>
-
-
-
+   - then redirect back to edit_user_path(@user)<br>
+ -->
 
 
 
