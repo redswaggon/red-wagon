@@ -23,8 +23,11 @@ class UsersController < ApplicationController
   end
 
   def show_wagon
-    render "user/error2" if wagons_nearby.empty?
-    @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)] 
+    if wagons_nearby.empty?
+      render "error2"
+    else
+      @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)] 
+    end
   end
 
   def update

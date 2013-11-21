@@ -1,14 +1,27 @@
-<h2>Success!</h2>
-<div id='grab_id' name='<%=@item.id%>'> </div>
-
-<%= image_tag @item.photo.url(:square) %>
-
-<script>
-  $(document).ready(function(){
-    $(window.parent.document.getElementById(<%= @item.id %>).children[0]).attr('src','<%=@item.photo.url(:square)%>');
-    $(window.parent.document.getElementById("cover")).hide();
-    $(window.parent.document.getElementById("edit_frame")).hide();
-  });
-</script>
-
- 
+<html>
+<head>
+  <title>RedWagon</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style>
+    body {
+      text-align: center;
+      background-color: #EEE;
+    }
+  </style>
+</head>
+<body>
+  <h2>Success!</h2>
+  <%= image_tag @item.photo.url(:square) %>
+  <script>
+    $(document).ready(function(){
+      $(window.parent.document.getElementById(<%= @item.id %>).children[1]).attr('src','<%=@item.photo.url(:square)%>');
+      setTimeout(function(){
+        $(window.parent.document.getElementById("cover")).fadeTo("fast", 0);
+        $(window.parent.document.getElementById("edit_frame")).fadeTo("fast", 0);
+        }, 800); 
+    });
+  </script>
+</body>
+</html>
