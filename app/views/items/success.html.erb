@@ -1,0 +1,14 @@
+<h2>Success!</h2>
+<div id='grab_id' name='<%=@item.id%>'> </div>
+
+<%= image_tag @item.photo.url(:square) %>
+
+<script>
+  $(document).ready(function(){
+    $(window.parent.document.getElementById(<%= @item.id %>).children[0]).attr('src','<%=@item.photo.url(:square)%>');
+    $(window.parent.document.getElementById("cover")).hide();
+    $(window.parent.document.getElementById("edit_frame")).hide();
+  });
+</script>
+
+ 

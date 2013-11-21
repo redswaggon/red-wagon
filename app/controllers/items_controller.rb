@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :edit]
+  before_action :set_item, only: [:update, :edit, :success]
   
   def edit
     @user = User.find_by(username: params[:username])
@@ -9,7 +9,11 @@ class ItemsController < ApplicationController
     @user = User.find(item_params[:user_id])
     @item.update_attributes(item_params)
     @item.save
-    redirect_to @user
+    redirect_to success_path(@item)
+  end
+
+  def success
+
   end
 
   # def create
