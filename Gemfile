@@ -37,6 +37,9 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
+
 # gem 'omniauth-oauth2', '~>1.0.3'
 # gem 'omniauth-facebook'
 # gem 'jquery-fileupload-rails'
