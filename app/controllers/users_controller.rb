@@ -6,9 +6,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def edit
-  end
-
   def new
     @user = User.new
   end
@@ -25,13 +22,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def show_wagon
-    # we have @user and params[:username] of another wagon
-    # Find all users in his hoods.
-    # Picks a random person and displays that person's wagon
+    render "user/error2" if wagons_nearby.empty?
+    @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)] 
   end
 
   def update
@@ -50,7 +43,17 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   private
+
+  def wagons_nearby
+    @user.neighborhoods.first.users.reject {|u| @user == u}
+  end
 
   def check_user
     redirect_to error_path unless session[:user_id] == params[:username]

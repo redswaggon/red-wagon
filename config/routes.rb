@@ -6,8 +6,7 @@ RedWagon::Application.routes.draw do
   # post 'users/:id' => 'users#update'
 
   root :to => 'users#index'
-
-
+  
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
@@ -23,7 +22,7 @@ RedWagon::Application.routes.draw do
   put '/users/:username' => 'users#update'
   patch '/users/:username' => 'users#update'
   
-  get '/users/show_wagon/:username' => 'users#show_wagon'
+  get '/users/show_wagon/:username' => 'users#show_wagon', as: 'show_wagon'
 
   # get '/users/:username/items/new' => 'items#new', as: 'new_user_item'
   get '/users/:username/items/:id/edit' => 'items#edit', as: 'edit_user_items'

@@ -16,20 +16,6 @@
     <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %><br>
   </div>
 
-  <div class="field">
-    <% @user.items.each do |item| %>
-      <%= f.fields_for item do |item_form| %>
-
-        <%= f.label :name %><br>
-        <%= item_form.text_field :name %><br>
-
-        <%= f.label :photo %><br>
-        <%= item_form.file_field :photo %><br>
-
-      <% end %>
-    <% end %>
-  </div>
-
   <%= f.submit "Submit Changes" %>
 
 <% end %>
