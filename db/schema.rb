@@ -55,8 +55,7 @@ ActiveRecord::Schema.define(version: 20131120190753) do
     t.datetime "updated_at"
     t.string   "email"
     t.string   "username"
-    t.string   "encrypted_password"
-    t.string   "salt"
+    t.string   "password_digest"
   end
 
 end

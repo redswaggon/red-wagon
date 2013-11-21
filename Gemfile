@@ -15,6 +15,7 @@ gem 'rails', '4.0.0'
 # User paperclip & aws for sile upload
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'brewdler'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -30,6 +31,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
