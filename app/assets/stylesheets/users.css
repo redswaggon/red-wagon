@@ -30,3 +30,24 @@ nav li {
   padding: 20px;
 }
 
+/*.photos .photo .glyphicon glyphicon-remove.hover a {
+    color: #d2d2d2;
+}*/
+.photos > .photo .glyphicon {
+  font-size: 28px;
+  vertical-align: top;
+  left: 150px;
+  z-index: 30;
+}
+.photos > .photo .glyphicon:hover {
+  color: red;
+  /*border-style: solid;
+  border-width: 2px;
+  border-color: black;*/
+/*  -webkit-filter: blur(1px); 
+*/
+}
+
+
+
+
