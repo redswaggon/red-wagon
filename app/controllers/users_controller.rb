@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if (@user = User.create(user_params))
       @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
       5.times {@user.items.build(name: "Click to add")}
-      @user.save!
+      @user.save!(validate: false)
       login(@user.username)
       redirect_to @user
     else
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    redirect_to error_path unless session[:user_id] == params[:username]
+    redirect_to error_path unless session[:username] == params[:username]
   end
 
   def set_user
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :username, :email)
+    params.require(:user).permit(:name, :username, :email, :password, :password_digest)
   end
 
 end

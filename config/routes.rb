@@ -7,8 +7,8 @@ RedWagon::Application.routes.draw do
 
   root :to => 'users#index'
   
-  get '/login' => 'sessions#new'
-  post '/sessions' => 'sessions#create'
+  get '/login' => 'sessions#new', as: "new_session"
+  post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
 
   get '/users/error' => 'users#error', as: 'error'
