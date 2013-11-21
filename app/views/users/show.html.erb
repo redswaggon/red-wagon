@@ -10,8 +10,8 @@
 <p><%= button_to 'Delete your account', @user, method: :delete %></p>
 
 <div class="photos">
-  <% @user.items.each_with_index do |item, i| %>
-    <div class="photo" id="<%= i+1 %>">
+  <% @user.items.each do |item| %>
+    <div class="photo" id="<%= item.id %>">
       <%= image_tag item.photo.url(:square) %><br>
       <%= item.name %><br>
     </div>
