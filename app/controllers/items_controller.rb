@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @user = User.find(item_params[:user_id])
     @item.update_attributes(item_params)
     @item.save
-    binding.pry
+    # binding.pry
     redirect_to @user
   end
 
@@ -19,10 +19,10 @@ class ItemsController < ApplicationController
     @item = @user.items.last
     item = {
       name: @item.name,
-      photo: @item.photo,
+      photo_url: @item.photo.url.to_s,
       user_id: @item.user_id
     }
-    # render json: @item
+    render json: @item
   end
 
   def destroy
