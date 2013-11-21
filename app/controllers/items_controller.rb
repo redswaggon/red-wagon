@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     @user = User.find(item_params[:user_id])
     @item.update_attributes(item_params)
     @item.save
-    binding.pry
     redirect_to @user
   end
 
