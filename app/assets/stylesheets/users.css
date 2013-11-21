@@ -20,7 +20,13 @@
   display: none;
 }
 
+.photos img {
+  height: 150px;
+  width: auto;
+}
+
 nav li {
   display: inline;
   padding: 20px;
 }
+

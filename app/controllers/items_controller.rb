@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :edit, :success, :destroy]
-  before_action :set_user, only: [:update, :edit, :destroy]
+  before_action :set_item, only: [:update, :edit, :success, :default]
+  before_action :set_user, only: [:update, :edit]
 
   def edit
     render layout: false
@@ -17,24 +17,16 @@ class ItemsController < ApplicationController
     render layout: false
   end
 
-  def destroy
+  def default
     @item.photo = nil
     @item.name = "click to upload image"
-    redirect_to @user
+    @item.save
+    item = {
+      name: "default",
+      photo_url: "/assets/missing.png"
+    }
+    render json: item
   end
-
-  # def create
-  #   @user = User.find_by(id: item_params[:user_id])
-  #   @user.items.build(item_params)
-  #   @user.save
-  #   @item = @user.items.last
-  #   item = {
-  #     name: @item.name,
-  #     photo_url: @item.photo.url.to_s,
-  #     user_id: @item.user_id
-  #   }
-  #   render json: @item
-  # end
 
   def destroy
     set_item.destroy

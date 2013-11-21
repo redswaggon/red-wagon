@@ -16,7 +16,7 @@
   <%= image_tag @item.photo.url(:square) %>
   <script>
     $(document).ready(function(){
-      $(window.parent.document.getElementById(<%= @item.id %>).children[0]).attr('src','<%=@item.photo.url(:square)%>');
+      $(window.parent.document.getElementById(<%= @item.id %>).children[1]).attr('src','<%=@item.photo.url(:square)%>');
       setTimeout(function(){
         $(window.parent.document.getElementById("cover")).fadeTo("fast", 0);
         $(window.parent.document.getElementById("edit_frame")).fadeTo("fast", 0);

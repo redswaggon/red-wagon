@@ -12,8 +12,9 @@
 <div class="photos">
   <% @user.items.each do |item| %>
     <div class="photo" id="<%= item.id %>">
+      <i class="glyphicon glyphicon-remove"></i>
       <%= image_tag item.photo.url(:square) %><br>
-      <%= item.name %><i class="icon-remove"></i><br>
+      <span><%= item.name %></span><br>
     </div>
   <% end %>
 </div>
