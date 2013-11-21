@@ -15,7 +15,7 @@ gem 'rails', '4.0.0'
 # User paperclip & aws for sile upload
 gem 'paperclip'
 gem 'aws-sdk'
-gem 'rmagick'
+gem 'brewdler'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
