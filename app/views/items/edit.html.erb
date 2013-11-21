@@ -12,7 +12,7 @@
       <%= f.file_field :photo %><br />
     </div>
 
-      <%= f.hidden_field :user_id, value: params[:id] %><br />
+      <%= f.hidden_field :user_id, value: @user.id %><br />
 
     <div id="submit_new_photo">
       <%= f.submit "Add Photo (Limit 5)" %>

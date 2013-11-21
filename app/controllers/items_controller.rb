@@ -1,22 +1,14 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:update, :edit]
   def edit
     @user = User.find_by(username: params[:username])
-    @item = Item.find(params[:id])
   end
 
   def update
-    @user = User.find_by(id: item_params[:user_id])
-    @user.items.each do |item|
-      item.update_attributes(item_params)
-    end
-    @user.save
-    @item = @user.items.last
-    item = {
-      name: @item.name,
-      photo: @item.photo,
-      user_id: @item.user_id
-    }
+    @user = User.find(item_params[:user_id])
+    @item.update_attributes(item_params)
+    @item.save
+    binding.pry
     redirect_to @user
   end
 
