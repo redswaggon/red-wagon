@@ -1,11 +1,11 @@
 <h2>Hello <%= @user.name %>!</h2>
 
 <h3>Here is your info.</h3>
-
+<%= link_to "Troll for wagons, you addict.", show_wagon_path(username: @user.username) %>
 <span class="username"><%= @user.username %></span><br>
 <%= @user.email %><br>
 
-<span class="edit_link">Edit your profile</span>
+<%= link_to "Edit your profile", edit_user_path(@user) %>
 
 <p><%= button_to 'Delete your account', @user, method: :delete %></p>
 

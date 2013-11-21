@@ -1,0 +1,14 @@
+<h1>Wagons near <%= @user.name %></h1>
+
+<h3>Neighborhoods</h3>
+<ul>
+  <% @user.neighborhoods.each do |hood| %>
+    <li><%= hood.name %></li>
+  <% end %>
+</ul>
+
+<h2><%= @stranger.username %>'s Wagon</h2>
+<% @stranger.items.each do |item| %>
+  <%= item.name %><br>
+  <%= image_tag item.photo.url(:square) %><br>
+<% end %>
