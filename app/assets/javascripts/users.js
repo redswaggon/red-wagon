@@ -12,7 +12,7 @@ $(function(){
     $('#cover, #edit_frame').fadeTo(200,0).hide();
   });
 
-  $('i').click(function(){
+  $('.glyphicon-remove').click(function(){
     var item, post_path, data, clicked_tag;
     item = $(this).parent().attr("id");
     post_path = "/items/" + item;

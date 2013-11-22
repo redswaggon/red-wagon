@@ -7,20 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <nav>
-      <h1>Red Wagon</h1>
-      <ul>
-        <%= link_to "Profile", @user %>
-        <% if logged_in? %>
-          <li> Logged In As:  <%= current_user.username %> </li>
-          <%= link_to "Logout", destroy_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Login", new_session_path %>
-          <%= link_to "New User", new_user_path %>
-        <% end %>
-      </ul>
-    </nav>
-
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Red Wagon</a>
+        </div>
+        <ul class="nav navbar-nav">
+<!--             <li class="active"><a href="#">Home</a></li> -->
+            <li><%= link_to "Profile", @user %></a></li>
+            <li><a href="#contact">Showcase</a></li>
+          </ul>
+        <div class="navbar-collapse collapse">
+            <% if logged_in? %>
+              
+              <%= render "layouts/header" %>
+            <% else %>
+              <%= render "layouts/login_header" %>
+            <% end %>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 <%= yield %>
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+    </div> <!-- /container -->
 </body>
 </html>

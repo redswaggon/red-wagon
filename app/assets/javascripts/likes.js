@@ -13,16 +13,16 @@ $(function(){
     $.post("/likes/create", data, function(response){
       alert(response.message);
       setTimeout(function(){
-        $('#next_wagon_button').click();
+        window.location = $('#next_wagon_button').attr('href');
         }, 800);
       });
   });
 
   $('.already_liked').click(function(e){
-    $('body').append("Already liked!");
-    e.preventDefault();
+      e.preventDefault();
+      $('body').append("Already liked!");
       setTimeout(function(){
-      $('#next_wagon_button').click();
+        window.location = $('#next_wagon_button').attr('href');
       }, 800);
     });
 

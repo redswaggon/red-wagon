@@ -13,6 +13,7 @@ TODO:
 5) Deployment
 6) Messaging service
 7) MVPs and email exchange
+8) Refactor: Javascript data passing (data attr)
 
 FUTURE: How do we make sure users don't keep cycling repeats? What happens when a user has viewed all wagons? ==> if no wagons left, send them to like page with a rendered "You've viewed all the wagons! Want to see them all again?"
 

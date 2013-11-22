@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   has_many :likes
   has_many :liked_users, :through => :likes#, :source => :user
   has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
@@ -9,8 +11,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['photo'].blank? }, allow_destroy: true
   before_save { self.email = email.downcase }
   has_secure_password
+  
   validates :name, presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
