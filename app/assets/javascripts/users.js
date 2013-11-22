@@ -25,4 +25,10 @@ $(function(){
     });
 
   });
+
+
+  $( "hide_like" ).click(function() {
+    $( this ).parent().hide();
+  });
+
 });

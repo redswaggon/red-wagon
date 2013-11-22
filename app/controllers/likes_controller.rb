@@ -17,5 +17,9 @@ class LikesController < ApplicationController
     @user = current_user
   end
 
+  def destroy
+    binding.pry
+  end
+
 end
 
