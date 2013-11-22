@@ -26,9 +26,18 @@ $(function(){
 
   });
 
+  $('.hide_like').click(function(){
+    
+    var like, post_path, data, clicked_tag;
+    like = $(this).parent().attr("id");
+    post_path = "/likes/destroy/";
+    data = {id: like};
+    clicked_tag = $(this);
 
-  $( "hide_like" ).click(function() {
-    $( this ).parent().hide();
+    $.post(post_path, data, function(){
+      clicked_tag.html(" ");
+    });
+
   });
 
 });

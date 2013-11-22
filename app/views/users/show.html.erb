@@ -29,17 +29,16 @@ Username: <span class="username"><%= @user.username %></span><br>
   <% mutual_users = @user.inverse_liked_users.select {
     |user| @user.liked_users.include?(user) } %>
   <% mutual_users.each do |user| %>
-    <div><%= link_to user.username, user %>
-     <div class="hide_like" a ref="#"> <%= button_to "Hide", destroy_like_path %></div>
-   </div>
+    <li><%= link_to user.username, user %>
+      <div class="hide_like" a ref="#"> <%= button_to "Hide", destroy_like_path %></div></li>
   <% end %>
 </ul>
 
 <h2>Likes My Wagon</h2>
 <ul>
   <% current_user.inverse_liked_users.each do |user| %>
-  <li><%= link_to user.username, user %></li>
-     <li class="hide_like"> Hide </li>
+  <li><%= link_to user.username, user %>
+     <div class="hide_like" data-like-id="<%= %>"> <%= button_to "Hide", destroy_like_path %></div></li>
     <% end %>
   </ul>
 
@@ -50,3 +49,8 @@ Username: <span class="username"><%= @user.username %></span><br>
     <li><%#= link_to user.username, user %></li>
     <%# end %>
   </ul> -->
+<!-- 
+
+     select from user.likes  where liked_user.id matches user.id
+
+   @user.likes.select { |users| @liked} -->
