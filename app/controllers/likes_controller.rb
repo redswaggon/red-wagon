@@ -8,6 +8,6 @@ class LikesController < ApplicationController
     response = {
       message: msg
     }
-    render :json response
+    render json: response
   end
 end
