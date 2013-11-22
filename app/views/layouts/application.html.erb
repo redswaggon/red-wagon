@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RedWagon</title>
+  <title>Red Wagon</title>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
           </button>
           <ul class="nav navbar-nav">
-            <li><a class="navbar-brand" href="#">Red Wagon</a></li>
+            <li><a class="navbar-brand" href="<%= root_path %>">Red Wagon</a></li>
             <%= render "layouts/menu_items" if logged_in? %>
           </ul>
         </div>
