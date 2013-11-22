@@ -6,6 +6,8 @@ RedWagon::Application.routes.draw do
   # post 'users/:id' => 'users#update'
 
   root :to => 'users#index'
+
+
   
   get '/login' => 'sessions#new', as: "new_session"
   post '/sessions' => 'sessions#create', as: 'sessions'
@@ -33,6 +35,7 @@ RedWagon::Application.routes.draw do
   get '/items/:id/success' => 'items#success', as: 'success'
   post '/items/:id' => 'items#default'
 
+  get '/likes/show' => 'likes#show', as: 'likes_show'
   post 'likes/create' => 'likes#create', as: 'create_like'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
