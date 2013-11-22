@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131120190753) do
 
   create_table "likes", force: true do |t|
     t.integer  "user_id"
-    t.integer  "liked_user"
+    t.integer  "liked_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

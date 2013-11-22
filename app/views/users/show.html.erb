@@ -26,28 +26,27 @@ Username: <span class="username"><%= @user.username %></span><br>
 
 <h2>Mutual Likes</h2>
 <ul>
-  <li><%= @user.inverse_liked_users.select { |user| @user.liked_users.include?(user) } %></li>
+  <% mutual_users = @user.inverse_liked_users.select {
+    |user| @user.liked_users.include?(user) } %>
+  <% mutual_users.each do |user| %>
+    <div><%= link_to user.username, user %>
+     <div class="hide_like" a ref="#"> <%= button_to "Hide", destroy_like_path %></div>
+   </div>
+  <% end %>
 </ul>
-
-<!-- OR... if you prefer
-
-ppl_who_liked_you = @user.inverse_liked_users
-ppl_you_liked = @user.liked_users
-
-MATCHES:
-ppl_who_liked_you.select { |person| ppl_you_liked.include?(person) }  -->
 
 <h2>Likes My Wagon</h2>
 <ul>
   <% current_user.inverse_liked_users.each do |user| %>
-    <li><%= link_to user.username, user %></li>
+  <li><%= link_to user.username, user %></li>
+     <li class="hide_like"> Hide </li>
     <% end %>
   </ul>
 
-<h2>Wagons I Like</h2>
+<!-- <h2>Wagons I Like</h2>
 
   <ul>
-  <% current_user.liked_users.each do |user| %>
-    <li><%= link_to user.username, user %></li>
-    <% end %>
-  </ul>
+  <%# current_user.liked_users.each do |user| %>
+    <li><%#= link_to user.username, user %></li>
+    <%# end %>
+  </ul> -->

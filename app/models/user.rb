@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_users, :through => :likes#, :source => :user
-  has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user"
+  has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
   has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
   has_many :items
   has_and_belongs_to_many :neighborhoods
