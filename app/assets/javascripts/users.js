@@ -32,10 +32,11 @@ $(function(){
     post_path = "/likes/destroy/";
     data = {id: liked_id};
     clicked_tag = $(this);
-    alert(liked_id);
-    // $.post(post_path, data, function(){
-    //   clicked_tag.html(" ");
-    // });
+
+    $.post(post_path, data, function(){
+      clicked_tag.html(" ");
+      clicked_tag.html(" ");
+    });
 
   });
 
