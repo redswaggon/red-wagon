@@ -18,14 +18,10 @@
           </button>
           <a class="navbar-brand" href="#">Red Wagon</a>
         </div>
-        <ul class="nav navbar-nav">
-<!--             <li class="active"><a href="#">Home</a></li> -->
+        <div class="navbar-collapse collapse">
             <li><%= link_to "Profile", @user %></a></li>
             <li><a href="#contact">Showcase</a></li>
-          </ul>
-        <div class="navbar-collapse collapse">
             <% if logged_in? %>
-              
               <%= render "layouts/header" %>
             <% else %>
               <%= render "layouts/login_header" %>
