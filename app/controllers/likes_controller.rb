@@ -1,8 +1,7 @@
 class LikesController < ApplicationController
 
   def create
-    if Like.create(user_id: params[:user], liked_user: User.find_by(:id => params[:stranger]))
-      # if Like.create(user_id: @user.id, liked_user: params[:stranger])
+    if Like.create(user_id: params[:user], liked_user_id: params[:stranger])
       msg = "Liked!"
     else
       msg = "failed :("
@@ -18,7 +17,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    binding.pry
   end
 
 end

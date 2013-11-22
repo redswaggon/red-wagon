@@ -26,7 +26,8 @@ Username: <span class="username"><%= @user.username %></span><br>
 
 <h2>Mutual Likes</h2>
 <ul>
-  <% mutual_users = @user.inverse_liked_users.select { |user| @user.liked_users.include?(user) } %>
+  <% mutual_users = @user.inverse_liked_users.select {
+    |user| @user.liked_users.include?(user) } %>
   <% mutual_users.each do |user| %>
     <div><%= link_to user.username, user %>
      <div class="hide_like" a ref="#"> <%= button_to "Hide", destroy_like_path %></div>

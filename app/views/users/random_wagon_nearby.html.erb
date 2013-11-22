@@ -14,7 +14,7 @@
   <%= image_tag item.photo.url(:square) %><br>
 <% end %><br>
 
-<% if Like.where(user_id: @user.id, liked_user: @stranger.id).empty? %>
+<% if Like.where(user_id: @user.id, liked_user_id: @stranger.id).empty? %>
   <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like", create_like_path, {id: "like_button", class: "not_yet_liked"} %></span>
 <% else %>
   <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like", create_like_path, {id: "like_button", class: "already_liked"} %></span>
