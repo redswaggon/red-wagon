@@ -26,18 +26,19 @@ $(function(){
 
   });
 
-  $('.hide_like').click(function(){
-    
+  $('.hide_like').click(function(e){
+    e.preventDefault();
+
     var liked_id, post_path, data, clicked_tag;
     liked_id = $(this).attr("data-like-id");
-    post_path = "/likes/destroy/"+ liked_id;
-    data = {id: like};
+    post_path = "/likes/destroy";
+    data = {id: liked_id};
     clicked_tag = $(this);
-    alert(liked_id);
-    // $.post(post_path, data, function(){
-    //   clicked_tag.html(" ");
-    // });
 
+    $.post(post_path, data, function(response){
+      clicked_tag.remove();
+      clicked_tag.parent().remove();
+    });
   });
 
 });

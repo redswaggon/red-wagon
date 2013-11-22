@@ -30,7 +30,8 @@ Username: <span class="username"><%= @user.username %></span><br>
     |user| @user.liked_users.include?(user) } %>
   <% mutual_users.each do |user| %>
     <li><%= link_to user.username, user %>
-      <div class="hide_like" a ref="#"> <%#= button_to "Hide", destroy_like_path %></div></li>
+      <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
+    </li>
   <% end %>
 </ul>
 
@@ -38,25 +39,7 @@ Username: <span class="username"><%= @user.username %></span><br>
 <ul>
   <% current_user.inverse_liked_users.each do |user| %>
     <li><%= link_to user.username, user %>
-     <div class="hide_like" data-like-id="
-     <% user.likes.each do |like| %>
-       <%= like.liked_user_id if like.liked_user_id == current_user.id %>
-     <% end %>"> 
-  <%= button_to "Hide" %>
-    </div>
-  </li>
+      <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
+    </li>
   <% end %>
 </ul>
-
-<!-- <h2>Wagons I Like</h2>
-
-  <ul>
-  <%# current_user.liked_users.each do |user| %>
-    <li><%#= link_to user.username, user %></li>
-    <%# end %>
-  </ul> -->
-<!-- 
-
-     select from user.likes  where liked_user.id matches user.id
-
-   @user.likes.select { |users| @liked} -->
