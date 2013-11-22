@@ -16,15 +16,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Red Wagon</a>
+          <ul class="nav navbar-nav">
+            <li><a class="navbar-brand" href="#">Red Wagon</a></li>
+            <%= render "layouts/menu_items" if logged_in? %>
+          </ul>
         </div>
         <div class="navbar-collapse collapse">
-            <li><%= link_to "Profile", @user %></a></li>
-            <li><a href="#contact">Showcase</a></li>
             <% if logged_in? %>
-              <%= render "layouts/header" %>
+              <%= render "layouts/logout" %>
             <% else %>
-              <%= render "layouts/login_header" %>
+              <%= render "layouts/login" %>
             <% end %>
         </div><!--/.navbar-collapse -->
       </div>
