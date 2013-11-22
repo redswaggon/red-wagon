@@ -1,15 +1,18 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <img src="/assets/wagon.png" class="wagon">
-        <div class="welcome">
-        <h1>Howdy!</h1>
-
-        <p class="">This here wagon can hold up to five items. Fill 'er up, then come on over to the showcase! "Like" other wagons and start a trade with the local yokels!</p>
-        <p><%= link_to "Register your Wagon!", new_user_path, {class: "btn btn-info btn-lg", role: "button"} %></a></p>
+        <div class="row">
+          <div class="welcome col-xs-4">
+            <h1>Howdy!</h1>
+            <p class="">This here wagon can hold up to five items. Fill 'er up, then come on over to the showcase! "Like" other wagons and start a trade with the local yokels!</p>
+            <p><%= link_to "Register your Wagon!", new_user_path, {class: "btn btn-info btn-lg", role: "button"} %></a></p>
+          </div>
+          <div class="col-xs-8">
+            <img src="/assets/wagon.png" class="wagon">
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
