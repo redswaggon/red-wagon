@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
-  has_many :items
   has_many :likes
+  has_many :liked_users, :through => :likes
+  has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user"
+  has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
+
+  has_many :items
+
   has_and_belongs_to_many :neighborhoods
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['photo'].blank? }, allow_destroy: true
   before_save { self.email = email.downcase }
