@@ -33,6 +33,7 @@ RedWagon::Application.routes.draw do
   get '/items/:id/success' => 'items#success', as: 'success'
   post '/items/:id' => 'items#default'
 
+  post 'likes/create' => 'likes#create', as: 'create_like'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
