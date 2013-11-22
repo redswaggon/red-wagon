@@ -24,6 +24,19 @@ Username: <span class="username"><%= @user.username %></span><br>
 
 <iframe id="edit_frame" src=""></iframe>
 
+<h2>Mutual Likes</h2>
+<ul>
+  <li><%= @user.inverse_liked_users.select { |user| @user.liked_users.include?(user) } %></li>
+</ul>
+
+<!-- OR... if you prefer
+
+ppl_who_liked_you = @user.inverse_liked_users
+ppl_you_liked = @user.liked_users
+
+MATCHES:
+ppl_who_liked_you.select { |person| ppl_you_liked.include?(person) }  -->
+
 <h2>Likes My Wagon</h2>
 <ul>
   <% current_user.inverse_liked_users.each do |user| %>

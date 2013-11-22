@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
 
   def create
+    binding.pry
     if Like.create(user_id: params[:user], liked_user: params[:stranger])
       msg = "Liked!"
     else
