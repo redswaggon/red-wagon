@@ -1,3 +1,29 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.wagon {
+  float: right;
+  z-index: 0;
+   
+  /*margin-left: 100px;*/
+}
+
+.welcome {
+  font-size: 30px;
+  /*background-image: url("/assets/wagon.png") ;*/
+
+  /*padding-right: 200px;*/
+  margin-top: 20px;
+  width: 30%;
+  padding: 20px;
+  line-height: 100%;
+  border-width: 3px;
+  border-style: solid;
+  z-index: 100;
+  text-align: left;
+  background-color: white;
+  box-shadow: 5px 5px 3px black;
+  
+}
