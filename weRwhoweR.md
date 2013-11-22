@@ -6,4 +6,19 @@
 - VIABLE BY MONDAY: 
 - BASIC: Page to populate all wagon_ids of mutually liked wagon id's.
 
-2) How do we make sure users don't keep cycling repeats? What happens when a user has viewed all wagons? ==> if no wagons left, send them to like page with a rendered "You've viewed all the wagons! Want to see them all again?"
+TODO:
+1) Add Mutual Likes
+2) Delete Wagons I like
+3) Hide button
+4) CSS
+5) Deployment
+6) Messaging service
+7) MVPs and email exchange
+
+FUTURE: How do we make sure users don't keep cycling repeats? What happens when a user has viewed all wagons? ==> if no wagons left, send them to like page with a rendered "You've viewed all the wagons! Want to see them all again?"
+
+
+FORM TEXTBOX
+rails g model messages
+user has_many :messages
+Attributes: content, from
