@@ -20,7 +20,7 @@ $(function(){
 
   $('.already_liked').click(function(e){
       e.preventDefault();
-      $('body').append("Already liked!");
+      alert("Already liked!");
       setTimeout(function(){
         window.location = $('#next_wagon_button').attr('href');
       }, 800);

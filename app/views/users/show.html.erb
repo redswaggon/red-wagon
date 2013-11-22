@@ -30,10 +30,7 @@ Username: <span class="username"><%= @user.username %></span><br>
     |user| @user.liked_users.include?(user) } %>
   <% mutual_users.each do |user| %>
     <li><%= link_to user.username, user %>
-      <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="
-        <% user.likes.each do |like| %>
-          <%= like.id if like.liked_user_id == current_user.id %>
-        <% end %>">Hide</a>
+      <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
     </li>
   <% end %>
 </ul>
@@ -42,10 +39,7 @@ Username: <span class="username"><%= @user.username %></span><br>
 <ul>
   <% current_user.inverse_liked_users.each do |user| %>
     <li><%= link_to user.username, user %>
-      <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="
-        <% user.likes.each do |like| %>
-          <%= like.id if like.liked_user_id == current_user.id %>
-        <% end %>">Hide</a>
+      <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
     </li>
   <% end %>
 </ul>
