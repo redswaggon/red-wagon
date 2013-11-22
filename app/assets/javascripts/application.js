@@ -14,6 +14,7 @@
 //= require jquery_ujs
 // Include all twitter's javascripts
 //= require twitter/bootstrap
+//= require bootstrap
 
 // Or peek any of them yourself
 //= require twitter/bootstrap/transition

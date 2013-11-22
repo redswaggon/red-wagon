@@ -37,7 +37,7 @@ RedWagon::Application.routes.draw do
 
   get '/likes/show' => 'likes#show', as: 'likes_show'
   post 'likes/create' => 'likes#create', as: 'create_like'
-  delete '/likes/destroy' => 'likes#destroy', as: 'destroy_like'
+  delete '/likes/destroy/:like_id' => 'likes#destroy', as: 'destroy_like'
 
   # The prioritpusy is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
