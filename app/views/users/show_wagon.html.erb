@@ -11,4 +11,16 @@
 <% @stranger.items.each do |item| %>
   <%= item.name %><br>
   <%= image_tag item.photo.url(:square) %><br>
-<% end %>
+<% end %><br>
+
+<%= link_to "Like", create_like_path, id: "like_button" %>
+
+LIKE BUTTON
+when user clicks like...
+...Like.create(user_id: @user.id, liked_user: @stranger.id)
+
+
+
+
+
+
