@@ -1,7 +1,7 @@
 <h2>Hello <%= @user.name %>!</h2>
 
 <h3>Here is your info.</h3>
-<%= link_to "Troll for wagons, you addict.", show_wagon_path(username: @user.username) %><br>
+<%= link_to "Troll for wagons, you addict.", random_wagon_nearby_path(username: @user.username) %><br>
 Username: <span class="username"><%= @user.username %></span><br>
 <%= @user.email %><br>
 <%= @user.neighborhoods.first.name %><br>

@@ -9,7 +9,7 @@ $(function(){
       user: user_id,
       stranger: stranger_id
       };
-
+      
     $.post("/likes/create", data, function(response){
       alert(response.message);
       setTimeout(function(){
@@ -17,5 +17,13 @@ $(function(){
         }, 800);
       });
   });
+
+  $('.already_liked').click(function(e){
+    $('body').append("Already liked!");
+    e.preventDefault();
+      setTimeout(function(){
+      $('#next_wagon_button').click();
+      }, 800);
+    });
 
 });

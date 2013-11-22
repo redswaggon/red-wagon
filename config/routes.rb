@@ -24,7 +24,7 @@ RedWagon::Application.routes.draw do
   put '/users/:username' => 'users#update'
   patch '/users/:username' => 'users#update'
   
-  get '/users/show_wagon/:username' => 'users#show_wagon', as: 'show_wagon'
+  get '/users/random_wagon_nearby/:username' => 'users#random_wagon_nearby', as: 'random_wagon_nearby'
 
   # get '/users/:username/items/new' => 'items#new', as: 'new_user_item'
   get '/users/:username/items/:id/edit' => 'items#edit', as: 'edit_user_items'

@@ -6,10 +6,4 @@
 - VIABLE BY MONDAY: 
 - BASIC: Page to populate all wagon_ids of mutually liked wagon id's.
 
-WAYS OF DEALING WITH STORING AND/OR DISPLAYING MUTUAL LIKES:
-
-Like.where(user_id: @user.id)
-
-\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-
 2) How do we make sure users don't keep cycling repeats? What happens when a user has viewed all wagons? ==> if no wagons left, send them to like page with a rendered "You've viewed all the wagons! Want to see them all again?"

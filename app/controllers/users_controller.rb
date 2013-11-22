@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :show, :show_wagon, :update, :destroy]
+  before_action :set_user, only: [:edit, :show, :random_wagon_nearby, :update, :destroy]
   skip_before_action :require_login, only: [:new, :create]
+  before_action :check_user, except: [:new, :create, :show_limited_wagon]
 
   def index
     @users = User.all
@@ -22,12 +23,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def show_wagon
+  def random_wagon_nearby
     if wagons_nearby.empty?
       render "error2"
     else
       @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)] 
     end
+  end
+
+  def show_limited_wagon
+    
   end
 
   def update

@@ -1,4 +1,4 @@
-<h1>Willamette</h1>
+<h1>random_wagon_nearby</h1>
 <h2>Wagons near <%= @user.name %></h2>
 
 <h3>Neighborhoods</h3>
@@ -20,4 +20,4 @@
   <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like", create_like_path, {id: "like_button", class: "already_liked"} %></span>
 <% end %><br>
 
-<%= link_to "Next Wagon", show_wagon_path(username: @user.username), id: "next_wagon_button" %>
+<%= link_to "Next Wagon", random_wagon_nearby_path(username: @user.username), id: "next_wagon_button" %>
