@@ -3,8 +3,7 @@
 1. What happens when 2 users like each other? How?
 
 - IDEAL: Every mutual liker = you get a textbox which you can open (or close forever) and text at any point. Tinder sidebar.
-- VIABLE BY MONDAY: 
-- BASIC: Page to populate all wagon_ids of mutually liked wagon id's.
+- VIABLE BY MONDAY:
 
 TODO:
 1) Add Mutual Likes
