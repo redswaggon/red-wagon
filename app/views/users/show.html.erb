@@ -1,9 +1,10 @@
 <h2>Hello <%= @user.name %>!</h2>
 
 <h3>Here is your info.</h3>
-<%= link_to "Troll for wagons, you addict.", show_wagon_path(username: @user.username) %>
-<span class="username"><%= @user.username %></span><br>
+<%= link_to "Troll for wagons, you addict.", show_wagon_path(username: @user.username) %><br>
+Username: <span class="username"><%= @user.username %></span><br>
 <%= @user.email %><br>
+<%= @user.neighborhoods.first.name %><br>
 
 <%= link_to "Edit your profile", edit_user_path(@user) %>
 

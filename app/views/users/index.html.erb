@@ -3,9 +3,11 @@
     <li><%= link_to user.username, user_path(user) %></li>
     
     <ul>
-      <% user.items.each do |item| %>
-        <li> Item: <%= image_tag item.photo.url(:thumb) %></li>
-      <% end %>
+      <div class="photos">
+        <% user.items.each do |item| %>
+          <li> Item: <%= image_tag item.photo.url(:square) %></li>
+        <% end %>
+      </div>
     </ul>
   <% end %>
 </ul>
