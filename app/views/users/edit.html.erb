@@ -1,21 +1,27 @@
-<h2>Edit <%= @user.username %>'s Wagon</h2>
+<br>
+<br>
+<br>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<div class="container edit-form-outside">
+  <div class="edit-form col-xs-5">
+    <%= form_for @user, url:{action: :update, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
+      <h2 class="form-signin-heading">Edit <%= @user.username %>'s Wagon</h2>
+      <div class="field">
+        <%= f.text_field :username, :class => "form-control input-standard" %><br>
+      </div>
 
-<%= form_for @user, url:{action: :update, controller: :users, id: @user.id} do |f| %>
+      <div class="field">
+        <%= f.text_field :email, :class => "form-control input-standard" %><br>
+      </div>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %><br>
+      <div class="field">
+        <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, {:class => "form-control input-standard"} %>
+      </div><br><br>
+
+      <button type="submit" class="btn btn-danger btn-hg btn-block">Submit Changes</button>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br>
-  </div>
-
-  <div class="field">
-    <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %><br>
-  </div>
-
-  <%= f.submit "Submit Changes" %>
-
-<% end %>
+</div>
+</div>
+<div class="col-md-3"></div>
