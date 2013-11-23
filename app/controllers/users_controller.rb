@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   before_action :check_user, except: [:index, :new, :create, :show_limited_wagon]
 
   def index
-    @users = User.all
+    if logged_in?
+      redirect_to @user
+    else
+      redirect_to new_session_path
+    end
   end
 
   def new
