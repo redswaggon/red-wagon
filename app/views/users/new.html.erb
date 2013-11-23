@@ -1,46 +1,38 @@
-<%= form_for @user do |f| %>
+<br>
+<br>
+<br>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<div class="container edit-form-outside">
+  <div class="edit-form col-xs-5">
+    <img src="/assets/wagon.png" class="bg">
+    <%= form_for @user, url:{action: :create, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
+      <h2 class="form-signin-heading">New Wagon</h2>
+      <div class="field">
+        <%= f.text_field :username, :class => "form-control input-standard", :placeholder => "tell us yo name" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
+      <div class="field">
+        <%= f.text_field :email, :class => "form-control input-standard", :placeholder => "email?" %>
+      </div>
+
+       <div class="field">
+        <%= f.text_field :password, :class => "form-control input-standard", :placeholder => "password?" %>
+      </div>
+
+       <div class="field">
+        <%= f.text_field :password_confirmation, :class => "form-control input-standard", :placeholder => "password again, please"  %>
+      </div>
+
+      <div class="field">
+        <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, {:class => "form-control input-standard"} %>
+      </div>
+
+      <button type="submit" class="btn btn-danger btn-hg btn-block">Submit Changes</button>
+    <% end %>
+
+
   </div>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %><br>
-  </div>
-
-    <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %><br>
-  </div>
-
-    <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.text_field :password_confirmation %><br>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br>
-  </div>
-
-  <div class="dropdown theme-dropdown clearfix">
-  <a id="dropdownMenu1" href="#" role="button" class="sr-only dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li class="active" role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  </ul>
 </div>
-
-
-  <div class="field">
-    <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name %>
-  </div>
-
-  <%= f.submit "Create User" %>
-
-<% end %>
+</div>
+<div class="col-md-3"></div>
