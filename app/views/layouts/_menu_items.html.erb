@@ -1,3 +1,4 @@
 <li><%= link_to "Profile", @user %></li>
 <li><%= link_to "Edit", edit_user_path(@user) %></li>
 <li><%= link_to "Showcase", random_wagon_nearby_path(username: @user.username) %></li>
+<li><%= @user.neighborhoods.first.name %></li>
