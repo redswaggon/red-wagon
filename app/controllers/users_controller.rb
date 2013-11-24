@@ -40,14 +40,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(username: user_params[:username], email: user_params[:email])
       @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
       @user.save!
       redirect_to @user
     else
       render "users/error"
     end
-    # @item = User.items.find(params[:item_id])
   end
 
   def destroy
@@ -76,7 +75,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password, :password_digest, :password_confirmation)
+    params.require(:user).permit(:name, :username, :email, :password, :password_digest, :password_confirmation, :neighborhoods)
   end
 
 end
