@@ -55,10 +55,15 @@ img.bg {
   left: 0;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
+/*@media screen and (min-width: 1024px) {
+  .edit-form {
+    padding: 0 50px;
+  }
+}*/
+
+@media screen and (max-width: 1024px) {
   img.bg {
     left: 50%;
     margin-left: -512px;   /* 50% */
   }
 }
-
