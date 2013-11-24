@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     if logged_in?
-      redirect_to @user
+      redirect_to user_path(current_user)
     else
       redirect_to new_session_path
     end
