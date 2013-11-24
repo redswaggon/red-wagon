@@ -8,27 +8,27 @@
     <img src="/assets/wagon.png" class="bg">
     <%= form_for @user, url:{action: :create, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
       <h2 class="form-signin-heading">New Wagon</h2>
-      <div class="field">
+      <div class="form-group">
         <%= f.text_field :username, :class => "form-control input-standard", :placeholder => "tell us yo name" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.text_field :email, :class => "form-control input-standard", :placeholder => "email?" %>
       </div>
 
-       <div class="field">
+       <div class="form-group">
         <%= f.text_field :password, :class => "form-control input-standard", :placeholder => "password?" %>
       </div>
 
-       <div class="field">
+       <div class="form-group">
         <%= f.text_field :password_confirmation, :class => "form-control input-standard", :placeholder => "password again, please"  %>
       </div>
 
       <div class="field">
         <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, {:class => "form-control input-standard"} %>
-      </div>
+      </div><br>
 
-      <button type="submit" class="btn btn-danger btn-hg btn-block">Submit Changes</button>
+      <button type="submit" class="btn btn-success btn-hg btn-block">Submit Changes</button>
     <% end %>
 
 
