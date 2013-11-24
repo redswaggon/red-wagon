@@ -16,7 +16,7 @@
           <%= form_for @user, url:{action: :update, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
             <div class="form-group">
               <%= f.label :username %>
-              <%= f.text_field :username, class: "form-control input-standard" %><br>
+              <%= f.text_field :username, class: "form-control input-standard" %>
             </div>
 
             <div class="form-group">
@@ -25,14 +25,15 @@
             </div>
 
             <div class="form-group">
-              <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, class: "form-control input-standard" %>
-            </div><br><br>
+              <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, class: "form-control input-standard" %><br>
+            </div>
 
             <button type="submit" class="btn btn-success btn-hg btn-block">Submit Changes</button>
           <% end %>
+          <br>
         </div>
-
-      </div>
+      </div> <!-- End of panel -->
+      <p><%= button_to 'Delete your account', @user, method: :delete, class: "btn btn-danger" %></p>
     </div>
   </div>
       

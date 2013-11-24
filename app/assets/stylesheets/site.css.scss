@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.my-fluid-container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 #crazyshit {
   background-color: #222;
   position: fixed;

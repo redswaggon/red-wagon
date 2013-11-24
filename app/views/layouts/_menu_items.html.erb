@@ -1,5 +1,6 @@
 <% if @user %>
   <li><%= link_to "Profile", @user %></li>
   <li><%= link_to "Edit", edit_user_path(@user) %></li>
+  <li><%= link_to "Likes", likes_show_path %></li>
   <li><%= link_to "Showcase", random_wagon_nearby_path(username: @user.username) %></li>
 <% end %>
