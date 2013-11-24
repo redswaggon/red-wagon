@@ -1,27 +1,31 @@
 <br>
 <br>
 <br>
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<div class="container edit-form-outside">
-  <div class="edit-form col-xs-5">
-    <%= form_for @user, url:{action: :update, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
-      <h2 class="form-signin-heading">Edit <%= @user.username %>'s Wagon</h2>
-      <div class="field">
-        <%= f.text_field :username, :class => "form-control input-standard" %><br>
-      </div>
+<div class="row">
+  <div class="col-sm-3 col-md-3 col-lg-3"></div>
+  
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="edit-form">
+      <%= form_for @user, url:{action: :update, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
+        <h2 class="form-signin-heading">Edit <%= @user.username %>'s Wagon</h2>
+        <div class="form-group">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: "form-control input-standard" %><br>
+        </div>
 
-      <div class="field">
-        <%= f.text_field :email, :class => "form-control input-standard" %><br>
-      </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control input-standard" %><br>
+        </div>
 
-      <div class="field">
-        <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, {:class => "form-control input-standard"} %>
-      </div><br><br>
+        <div class="form-group">
+          <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, class: "form-control input-standard" %>
+        </div><br><br>
 
-      <button type="submit" class="btn btn-danger btn-hg btn-block">Submit Changes</button>
-    <% end %>
+        <button type="submit" class="btn btn-danger btn-hg btn-block">Submit Changes</button>
+      <% end %>
+    </div>
   </div>
+      
+  <div class="col-sm-3 col-md-3 col-lg-3"></div>
 </div>
-</div>
-<div class="col-md-3"></div>

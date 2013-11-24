@@ -1,32 +1,6 @@
 .edit-form {
-  width: 50%;
-  display: inline-block;
-}
-
-.edit-form-outside {
-  display: inline-block;
-}
-
-.form-control-edit {
-  width: 50%;
-}
-
-.field {
-  padding: 5px;
-}
-
-#crazyshit {
-  background-color: #222;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 10px 0 0 10px;
   width: 100%;
-  height: auto;
-  box-shadow: 30px 30px 30px 30px;
-  z-index: 999;
-}
-
-footer {
-  color: white;
+  display: inline-block;
+  z-index: 100;
+  padding: 0 70px;
 }
