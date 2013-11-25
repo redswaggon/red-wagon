@@ -1,4 +1,5 @@
 RedWagon::Application.routes.draw do
+  post "messages/create" => 'messages#create', as: "messages"
   # OMNIAUTH FACEBOOK
   # match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
   # match '/auth/failure', to: redirect('/'), via: [:get, :post]

@@ -19,22 +19,23 @@
             <% elsif !Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).empty? %>
               <% chat = Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).first %>
             <% else %>
-              <%= "Could not find chat." %>  
+              <% chat = Chat.create(user_id: @user.id, chatted_user_id: user.id) %>
             <% end %>
 
             <!-- Show all messages -->
-            <%= chat.messages.all.each do |message| %>
-              <%= message.content %>
+            <%= chat.messages.each do |message| %>
+              <br><%= message.content %>
             <% end %>
 
             <!-- Field to submit new message via jquery -->
-            <% new_message = chat.messages.build(from: @user.id, to: user.id) %>
-            <%= form_for new_message, class: "chat_form" do |f| %>
+            <%= form_tag Message.new, class: "chat_form" %>
 
-              <%= f.text_area :message, :content, cols: 10, rows: 20 %>
+              <%= text_area_tag :content, "write your message here", {cols: 50, rows: 3} %>
+              <%= hidden_field_tag :from, @user.id %>
+              <%= hidden_field_tag :to, user.id %>
+              <%= hidden_field_tag :chat_id, chat.id %>
 
-              <%= f.submit "Send message" %>
-            <% end %>
+            <%= submit_tag "Send message" %>
           </li>
         <% end %>
       </ul>
