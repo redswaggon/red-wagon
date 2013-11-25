@@ -17,6 +17,7 @@
   <script>
     $(document).ready(function(){
       $(window.parent.document.getElementById(<%= @item.id %>).children[1]).attr('src','<%=@item.photo.url(:square)%>');
+      $(window.parent.document.getElementById(<%= @item.id %>).children[3]).text("<%=@item.name%>");
       setTimeout(function(){
         $(window.parent.document.getElementById("cover")).fadeTo("fast", 0);
         $(window.parent.document.getElementById("edit_frame")).fadeTo("fast", 0);
