@@ -7,11 +7,11 @@
       <h2>Mutual Likes</h2>
       <ul>
         <% @mutually_liked_users.each do |user| %>
-          <li><%= link_to user.username, user %>
+          <li class="mutual_user"><%= link_to user.username, user %>
 
             <a href="#" role="button" class="show_chat btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Chat</a>
 
-            <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
+            <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide (Forever)</a><br>
 
             <!-- Find the chat that matches this user and the current_user -->
             <% if !Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).empty? %>

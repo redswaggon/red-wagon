@@ -26,8 +26,8 @@ $(function(){
 
   });
 
-  $('.hide_like').click(function(e){
-    e.preventDefault();
+  $('.hide_like').click(function(){
+    $(this).parent().hide();
 
     var liked_id, post_path, data, clicked_tag;
     liked_id = $(this).attr("data-like-id");
@@ -36,15 +36,15 @@ $(function(){
     clicked_tag = $(this);
 
     $.post(post_path, data, function(response){
-      clicked_tag.remove();
-      clicked_tag.parent().remove();
+      // clicked_tag.parent().remove();
+           
     });
   });
 
   $('.show_chat').click(function(e){
     e.preventDefault();
     $('.chat_form').toggle("fast");
-    alert('js queriedz');
+   
 
     // var liked_id, post_path, data, clicked_tag;
     // chatted_user_id = $(this).attr("data-like-id");
