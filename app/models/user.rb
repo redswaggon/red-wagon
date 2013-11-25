@@ -5,14 +5,22 @@ class User < ActiveRecord::Base
   has_many :liked_users, :through => :likes#, :source => :user
   has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
   has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
+
+  # has_many :chats
+  # has_many :chatted_users, :through => :chats#, :source => :user
+  # has_many :inverse_chats, :class_name => "Chat", :foreign_key => "chatted_user_id"
+  # has_many :inverse_chatted_users, :through => :inverse_chats, :source => :user
+
+  has_many :messages, :through => :chats
+
   has_many :items
-  has_and_belongs_to_many :neighborhoods
-  
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['photo'].blank? }, allow_destroy: true
   before_save { self.email = email.downcase }
+
+  has_and_belongs_to_many :neighborhoods
+
   has_secure_password
-  
-  validates :name, presence: true, length: { maximum: 50 }
+  # validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
@@ -22,6 +30,18 @@ class User < ActiveRecord::Base
   def to_param
     username
   end
+
+  def mutually_liked_users
+    self.inverse_liked_users.select {
+      |user| self.liked_users.include?(user) }
+  end
+
+  def create_chat(hash)
+    new_chat = current_user.chats.build(hash)
+    new_chat.messages.build(:content => "this is a new message")
+    new_chat.save
+  end
+
 end
 
 

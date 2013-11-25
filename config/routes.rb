@@ -1,4 +1,5 @@
 RedWagon::Application.routes.draw do
+  post "messages/create" => 'messages#create', as: "messages"
   # OMNIAUTH FACEBOOK
   # match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
   # match '/auth/failure', to: redirect('/'), via: [:get, :post]
@@ -36,6 +37,10 @@ RedWagon::Application.routes.draw do
   get '/likes/show' => 'likes#show', as: 'likes_show'
   post 'likes/create' => 'likes#create', as: 'create_like'
   post '/likes/destroy' => 'likes#destroy', as: 'destroy_like'
+
+  post '/chats/create' => 'chats#create', as: 'create_chat'
+
+  get '/chats/show' => 'chats#show', as: 'show_chats'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

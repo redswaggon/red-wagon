@@ -6,11 +6,37 @@
     <div class="col-md-6">
       <h2>Mutual Likes</h2>
       <ul>
-        <% mutual_users = @user.inverse_liked_users.select {
-          |user| @user.liked_users.include?(user) } %>
-        <% mutual_users.each do |user| %>
+        <% @mutually_liked_users.each do |user| %>
           <li><%= link_to user.username, user %>
+
+            <a href="#" role="button" class="show_chat btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Chat</a>
+
             <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
+
+            <!-- Find the chat that matches this user and the current_user -->
+            <% if !Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).empty? %>
+              <% chat = Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).first %>
+            <% elsif !Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).empty? %>
+              <% chat = Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).first %>
+            <% else %>
+              <% chat = Chat.create(user_id: @user.id, chatted_user_id: user.id) %>
+            <% end %>
+
+            <!-- Show all messages -->
+            <% chat.messages.each do |message| %>
+              <br><%= message.content %>
+            <% end %>
+
+            <!-- Field to submit new message via jquery -->
+            <%= form_tag Message.new, class: "chat_form" do %>
+
+              <%= text_area_tag :content, "write your message here", {cols: 50, rows: 3} %>
+              <%= hidden_field_tag :from, @user.id %>
+              <%= hidden_field_tag :to, user.id %>
+              <%= hidden_field_tag :chat_id, chat.id %>
+
+            <%= submit_tag "Send message" %>
+            <% end %>
           </li>
         <% end %>
       </ul>
