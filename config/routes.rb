@@ -37,7 +37,7 @@ RedWagon::Application.routes.draw do
   post 'likes/create' => 'likes#create', as: 'create_like'
   post '/likes/destroy' => 'likes#destroy', as: 'destroy_like'
 
-  get '/chats/create' => 'chats#create', as: 'create_chat'
+  post '/chats/create' => 'chats#create', as: 'create_chat'
 
   get '/chats/show' => 'chats#show', as: 'show_chats'
 

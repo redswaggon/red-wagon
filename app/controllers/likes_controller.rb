@@ -14,7 +14,7 @@ class LikesController < ApplicationController
 
   def show
     @user = current_user
-    @mutually_liked_users = User.mutually_liked_users(@user)
+    @mutually_liked_users = @user.mutually_liked_users
   end
 
   def destroy
@@ -26,6 +26,4 @@ class LikesController < ApplicationController
     response = { message: message }
     render json: message
   end
-
 end
-

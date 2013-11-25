@@ -41,16 +41,19 @@ $(function(){
     });
   });
 
-  $('.create_chat').click(function(e){
+  $('.show_chat').click(function(e){
     e.preventDefault();
+    $('.chat_form').toggle("fast");
+    alert('js queriedz');
 
-    var liked_id, post_path, data, clicked_tag;
-    chatted_user_id = $(this).attr("data-like-id");
-    post_path = "/chats/create";
-    data = {id: chatted_user_id};
-    clicked_tag = $(this);
+    // var liked_id, post_path, data, clicked_tag;
+    // chatted_user_id = $(this).attr("data-like-id");
+    // post_path = "/chats/create";
+    // data = {id: chatted_user_id};
+    // clicked_tag = $(this);
 
-    $.get(post_path, data)
+    // $.post(post_path, data, function(response){
+    // });
   });
  
 

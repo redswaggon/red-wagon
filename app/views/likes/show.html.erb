@@ -9,8 +9,32 @@
         <% @mutually_liked_users.each do |user| %>
           <li><%= link_to user.username, user %>
 
-            <a href="#" role="button" class="create_chat btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Chat</a>
+            <a href="#" role="button" class="show_chat btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Chat</a>
+
             <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
+
+            <!-- Find the chat that matches this user and the current_user -->
+            <% if !Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).empty? %>
+              <% chat = Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).first %>
+            <% elsif !Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).empty? %>
+              <% chat = Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).first %>
+            <% else %>
+              <%= "Could not find chat." %>  
+            <% end %>
+
+            <!-- Show all messages -->
+            <%= chat.messages.all.each do |message| %>
+              <%= message.content %>
+            <% end %>
+
+            <!-- Field to submit new message via jquery -->
+            <% new_message = chat.messages.build(from: @user.id, to: user.id) %>
+            <%= form_for new_message, class: "chat_form" do |f| %>
+
+              <%= f.text_area :message, :content, cols: 10, rows: 20 %>
+
+              <%= f.submit "Send message" %>
+            <% end %>
           </li>
         <% end %>
       </ul>

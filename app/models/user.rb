@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
   has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
 
-  has_many :chats
-  has_many :chatted_users, :through => :chats#, :source => :user
-  has_many :inverse_chats, :class_name => "Chat", :foreign_key => "chatted_user_id"
-  has_many :inverse_chatted_users, :through => :inverse_chats, :source => :user
+  # has_many :chats
+  # has_many :chatted_users, :through => :chats#, :source => :user
+  # has_many :inverse_chats, :class_name => "Chat", :foreign_key => "chatted_user_id"
+  # has_many :inverse_chatted_users, :through => :inverse_chats, :source => :user
 
   has_many :messages, :through => :chats
 
@@ -31,21 +31,16 @@ class User < ActiveRecord::Base
     username
   end
 
-  def self.mutually_liked_users(curr_user)
-    curr_user.inverse_liked_users.select {
-      |user| curr_user.liked_users.include?(user) }
+  def mutually_liked_users
+    self.inverse_liked_users.select {
+      |user| self.liked_users.include?(user) }
   end
 
-
-  # def self.create_chat
-  #   self.mutually_liked_users.each do |user|
-  #     new_chat = user.chats.build(user_id: current_user.id)
-  #     new_chat.messages.build
-  #     user.likes.each do |like|
-  #       Chat.new if like.liked_user_id == current_user.id
-  #     end
-  #   end
-  # end
+  def create_chat(hash)
+    new_chat = current_user.chats.build(hash)
+    new_chat.messages.build(:content => "this is a new message")
+    new_chat.save
+  end
 
 end
 
