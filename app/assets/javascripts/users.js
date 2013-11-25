@@ -36,8 +36,7 @@ $(function(){
     clicked_tag = $(this);
 
     $.post(post_path, data, function(response){
-      clicked_tag.remove();
-      clicked_tag.parent().remove();
+      clicked_tag.parent().remove();      
     });
   });
 
