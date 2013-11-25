@@ -28,7 +28,9 @@
             <% end %>
 
             <!-- Field to submit new message via jquery -->
-            <%= form_tag Message.new, class: "chat_form" %>
+            <% new_message = chat.messages.build(chat_id: chat.id) %>
+
+            <%= form_tag new_message, class: "chat_form" %>
 
               <%= text_area_tag :content, "write your message here", {cols: 50, rows: 3} %>
               <%= hidden_field_tag :from, @user.id %>
