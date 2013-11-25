@@ -61,6 +61,18 @@
   color: red;
 }
 
+.like-or-not-buttons-div {
+  text-align: center;
+}
+
+.like-button-div, .next-wagon-div {
+  display: inline-block;
+}
+
+.like-button-div {
+  padding-right: 2em;
+}
+
 p.text-center {
   padding: 10px;
   font-family: 'Permanent Marker', cursive;
@@ -83,12 +95,6 @@ img.bg {
   left: 0;
   z-index: -1;
 }
-
-/*@media screen and (min-width: 1024px) {
-  .edit-form {
-    padding: 0 50px;
-  }
-}*/
 
 @media screen and (max-width: 1024px) {
   img.bg {

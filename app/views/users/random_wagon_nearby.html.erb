@@ -20,15 +20,15 @@
   </div> <!-- End of photos div -->
 </div> <!-- End of wagon row -->
 
-<div class="row">
-  <div class="col-md-3 col-md-offset-3">
+<div class="container like-or-not-buttons-div">
+  <div class="like-button-div">
     <% if Like.where(user_id: @user.id, liked_user_id: @stranger.id).empty? %>
       <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like this Wagon", create_like_path, {id: "like_button", class: "not_yet_liked btn btn-lg btn-success", role: "button"} %></span>
     <% else %>
       <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like this Wagon", create_like_path, {id: "like_button", class: "already_liked btn btn-lg btn-success", role: "button"} %></span>
     <% end %><br>
   </div>
-  <div class="col-md-3 col-md-offset-1">
+  <div class="next-wagon-div">
     <%= link_to "Next Wagon >>", random_wagon_nearby_path(username: @user.username), id: "next_wagon_button", class: "btn btn-lg btn-success" %>
   </div>
 </div>

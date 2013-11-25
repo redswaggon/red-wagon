@@ -18,11 +18,13 @@
             <span class="icon-bar"></span>
           </button>
           <ul class="nav navbar-nav">
-            <li><a class="navbar-brand" href="<%= root_path %>">Little Red Wagon</a></li>
-            <%= render "layouts/menu_items" if logged_in? %>
+              <li><a class="navbar-brand" href="<%= root_path %>">Little Red Wagon</a></li>
           </ul>
         </div>
         <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <%= render "layouts/menu_items" if logged_in? %>
+          </ul>
             <% if logged_in? %>
               <%= render "layouts/logout" %>
             <% else %>
