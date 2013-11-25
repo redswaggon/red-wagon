@@ -101,11 +101,20 @@ img.bg {
   .photos > .photo .glyphicon {
     right: 0;
   }
+  .welcome h1 {
+    font-size: 1.5em;
+  }
+  .welcome p {
+    font-size: 0.9em;
+  }
+  .welcome .btn.btn-info.btn-lg {
+    font-size: 0.9em;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
   .welcome h1 {
-    font-size: 0.8em;
+    font-size: 1.3em;
   }
   .welcome p {
     font-size: 0.8em;
@@ -136,25 +145,25 @@ img.bg {
 
 @media only screen and (max-width: 768px) {
   .welcome h1 {
-    font-size: 0.6em;
+    font-size: 1em;
   }
   .welcome p {
-    font-size: 0.6em;
+    font-size: 0.7em;
   }
   .welcome .btn.btn-info.btn-lg {
-    font-size: 0.6em;
+    font-size: 0.8em;
   }
 }
 
 @media only screen and (max-width: 700px) {
   .welcome h1 {
-    font-size: 0.5em;
+    font-size: 0.8em;
   }
   .welcome p {
-    font-size: 0.5em;
+    font-size: 0.6em;
   }
   .welcome .btn.btn-info.btn-lg {
-    font-size: 0.5em;
+    font-size: 0.7em;
   }
   .photo {
     margin: 0;
