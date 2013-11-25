@@ -75,6 +75,8 @@ RedWagon::Application.configure do
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
   config.paperclip_defaults = {
   :storage => :s3,
   :bucket => ENV['S3_BUCKET_NAME'],

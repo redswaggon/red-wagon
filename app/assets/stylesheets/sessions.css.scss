@@ -20,7 +20,8 @@
   border-width: 3px;
   border-style: solid;
   z-index: 100;
-  font-family: 'Molle', cursive;
+  font-family: 'Franklin Gothic Book';
+  font-size: 1.3em;
   text-align: left;
   background-color: white;
   box-shadow: 5px 5px 3px black;
@@ -32,16 +33,20 @@
   padding-bottom: 15px;
 }
 
+.register-button {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2em;
+}
 
 @media only screen and (max-width: 1078px) {
   .welcome h1 {
-    font-size: .8em;
+    font-size: 0.8em;
   }
   .welcome p {
-    font-size: .8em;
+    font-size: 0.8em;
   }
   .welcome .btn.btn-info.btn-lg {
-    font-size: .8em;
+    font-size: 0.8em;
 
 
   }
@@ -49,13 +54,13 @@
 
 @media only screen and (max-width: 808px) {
   .welcome h1 {
-    font-size: .6em;
+    font-size: 0.6em;
   }
   .welcome p {
-    font-size: .6em;
+    font-size: 0.6em;
   }
   .welcome .btn.btn-info.btn-lg {
-    font-size: .6em;
+    font-size: 0.6em;
 
 
   }
@@ -63,13 +68,13 @@
 
 @media only screen and (max-width: 700px) {
   .welcome h1 {
-    font-size: .5em;
+    font-size: 0.5em;
   }
   .welcome p {
-    font-size: .5em;
+    font-size: 0.5em;
   }
   .welcome .btn.btn-info.btn-lg {
-    font-size: .5em;
+    font-size: 0.5em;
 
 
   }
