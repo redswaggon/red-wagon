@@ -1,7 +1,10 @@
 class ChatsController < ApplicationController
-  
-  def new
-    Chat.create_chats(@user)
+
+  def create
+    if !Chat.where(user_id:  current_user.id, chatted_user_id: params[:id]).empty?
+    else Chat.create(user_id:  current_user.id, chatted_user_id: params[:id])
+    end
+    redirect_to show_chats_path
   end
 
 

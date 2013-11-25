@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  has_many :chats
-  has_many :messages, :through => :chats
-  
-
   has_many :likes
   has_many :liked_users, :through => :likes#, :source => :user
   has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
   has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
+
+  has_many :chats
+  has_many :chatted_users, :through => :chats#, :source => :user
+  has_many :inverse_chats, :class_name => "Chat", :foreign_key => "chatted_user_id"
+  has_many :inverse_chatted_users, :through => :inverse_chats, :source => :user
+
+  has_many :messages, :through => :chats
 
   has_many :items
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['photo'].blank? }, allow_destroy: true
