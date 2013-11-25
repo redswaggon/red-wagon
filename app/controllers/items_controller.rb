@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @item.name = "click to upload image"
     @item.save
     item = {
-      name: "default",
+      name: "Click to add",
       photo_url: "/assets/missing.png"
     }
     render json: item

@@ -20,11 +20,15 @@
   display: none;
 }
 
-.photos {
+.photos, .photos-stranger {
   padding-top: 20px;
 }
 
-.photos img {
+.photo-stranger {
+  display: inline-block;
+}
+
+.photos img, .photos-stranger img {
   border: solid #EEE;
   position: relative;
   display: block;
