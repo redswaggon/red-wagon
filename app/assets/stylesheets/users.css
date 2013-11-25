@@ -22,10 +22,12 @@
 
 .photos, .photos-stranger {
   padding-top: 20px;
+  text-align: center;
 }
 
-.photo-stranger {
+.photo-stranger, .photo {
   display: inline-block;
+  padding-right: 30px;
 }
 
 .photos img, .photos-stranger img {

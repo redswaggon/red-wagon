@@ -8,7 +8,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 photos-stranger" style="background: #888">
+  <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 photos-stranger">
     <div class="photos-stranger">
       <% @stranger.items.each do |item| %>
         <div class="photo-stranger">
@@ -21,13 +21,14 @@
 </div> <!-- End of wagon row -->
 
 <div class="row">
-  <div class="container">
-      <% if Like.where(user_id: @user.id, liked_user_id: @stranger.id).empty? %>
-        <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like", create_like_path, {id: "like_button", class: "not_yet_liked"} %></span>
-      <% else %>
-        <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like", create_like_path, {id: "like_button", class: "already_liked"} %></span>
-      <% end %><br>
-
-      <%= link_to "Next Wagon", random_wagon_nearby_path(username: @user.username), id: "next_wagon_button" %>
+  <div class="col-md-3 col-md-offset-3">
+    <% if Like.where(user_id: @user.id, liked_user_id: @stranger.id).empty? %>
+      <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like this Wagon", create_like_path, {id: "like_button", class: "not_yet_liked btn btn-lg btn-success", role: "button"} %></span>
+    <% else %>
+      <span id="<%= @user.id %>" class="<%= @stranger.id %>"><%= link_to "Like this Wagon", create_like_path, {id: "like_button", class: "already_liked btn btn-lg btn-success", role: "button"} %></span>
+    <% end %><br>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to "Next Wagon >>", random_wagon_nearby_path(username: @user.username), id: "next_wagon_button", class: "btn btn-lg btn-success" %>
   </div>
 </div>
