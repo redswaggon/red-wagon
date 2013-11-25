@@ -14,29 +14,47 @@
   height: 55%;
   width: 33%;
   top: 20%;
-  background-color: rgba(255,255,255,1);
-  z-index: 20;
+  background-color: rgb(255,255,255);
+  z-index: 900;
   left: 33%;
   display: none;
 }
 
 .photos img {
+  border: solid #EEE;
+  position: relative;
+  display: block;
   height: 150px;
   width: auto;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px #888;
+  -moz-box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px #888;
 }
 
-/*.photos .photo .glyphicon glyphicon-remove.hover a {
-    color: #d2d2d2;
-}*/
+.photos img:hover{
+  transform: scale(1.1, 1.1);
+  -ms-transform:scale(1.1, 1.1); /* IE 9 */
+  -webkit-transform:scale(1.1, 1.1); /* Safari and Chrome */
+}
+
 .photos > .photo .glyphicon {
   font-size: 28px;
   vertical-align: top;
-  left: 150px;
   z-index: 30;
+  position: absolute;
+  top: 10px;
+  right: 30px;
 }
 
 .photos > .photo .glyphicon-remove:hover {
   color: red;
+}
+
+p.text-center {
+  padding: 10px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5em;
 }
 
 img.bg {

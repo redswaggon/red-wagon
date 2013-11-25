@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar-brand {
+  font-family: 'Molle', cursive;
+  font-size: 1.5em;
+  background-color: rgba(200, 0, 0, 1);
+  color: #FFF !important;
+  z-index: 2;
+}
+
+h1, h2 {
+  font-family: 'Molle', cursive;
+  font-size: 4em;  
+}
+
+.navbar-brand:hover {
+  background-color: rgba(200, 0, 0, 1) !important;
+}
+
 .my-fluid-container {
   margin: 0 auto;
   padding: 0 15px;

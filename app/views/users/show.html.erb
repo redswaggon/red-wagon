@@ -1,20 +1,31 @@
 <br>
 <br>
+<img src="/assets/wagon.png" class="bg">
 <div class="container">
   <div class="row">
-    <h1><span class="username"><%= @user.username %></span>'s wagon</h1><br>
+    <h1 class="text-center"><span class="username"><%= @user.username.capitalize %></span>'s Wagon</h1><br>
   </div>
 </div>
-  <div class="photos">
-    <% @user.items.each do |item| %>
-      <div class="photo" id="<%= item.id %>">
-        <i class="glyphicon glyphicon-remove"></i>
-        <%= image_tag item.photo.url(:square) %><br>
-        <span><%= item.name %></span><br>
-      </div>
-    <% end %>
-  </div>
 
-  <div id="cover"></div>
+<!-- <div class="container"> -->
+  <div class="row">
 
-  <iframe id="edit_frame" src=""></iframe>
+    <!-- <div class="col-sm-10 col-md-10 col-lg-10"> -->
+      <div class="photos container">
+        <div class="col-sm-1 col-md-1 col-lg-1"></div>
+          <% @user.items.each do |item| %>
+            <div class="photo col-md-2" id="<%= item.id %>">
+              <i class="glyphicon glyphicon-remove"></i>
+              <%= image_tag item.photo.url(:square) %><br>
+              <p class="text-center"><%= item.name %></p><br>
+            </div>
+          <% end %>
+        <div class="col-sm-1 col-md-1 col-lg-1"></div>
+      </div> <!-- End of photos div -->
+    <!-- </div> -->
+
+  </div> <!-- End of wagon row -->
+<!-- </div> End of wagon container -->
+
+<div id="cover"></div>
+<iframe id="edit_frame" src=""></iframe>

@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main-page h2 {
+  font-family: 'Molle', cursive;
+}
 
 .wagon {
   width: 100%;
@@ -9,7 +12,6 @@
 }
 
 .welcome {
-  font-size: 30px;
   margin-top: 20px;
   width: 30%;
   min-width: 300px;
@@ -18,13 +20,16 @@
   border-width: 3px;
   border-style: solid;
   z-index: 100;
+  font-family: 'Molle', cursive;
   text-align: left;
   background-color: white;
   box-shadow: 5px 5px 3px black;
   float: left;
 }
 
-
+.howdy {
+  font-family: 'Molle', cursive;
+}
 
 
 @media only screen and (max-width: 1078px) {

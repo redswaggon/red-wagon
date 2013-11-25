@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     if (@user = User.create(user_params))
-      @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
+      @user.neighborhoods = [Neighborhood.find(params[:neighborhood][:neighborhoods])]
       5.times {@user.items.build(name: "Click to add")}
       @user.save!
       login(@user.username)
@@ -40,14 +40,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
-      @user.neighborhoods = [Neighborhood.find(params[:user][:neighborhoods])]
+    if @user.update_attributes(username: user_params[:username], email: user_params[:email])
+      @user.neighborhoods = [Neighborhood.find(params[:neighborhood][:neighborhoods])]
       @user.save!
       redirect_to @user
     else
       render "users/error"
     end
-    # @item = User.items.find(params[:item_id])
   end
 
   def destroy

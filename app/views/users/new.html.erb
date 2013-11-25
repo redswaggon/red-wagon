@@ -9,7 +9,11 @@
     <%= form_for @user, url:{action: :create, controller: :users, id: @user.id, class: "form-signin"} do |f| %>
       <h2 class="form-signin-heading">New Wagon</h2>
       <div class="form-group">
-        <%= f.text_field :username, :class => "form-control input-standard", :placeholder => "tell us yo name" %>
+        <%= f.text_field :name, :class => "form-control input-standard", :placeholder => "tell us yo name" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :username, :class => "form-control input-standard", :placeholder => "make up a badass username" %>
       </div>
 
       <div class="form-group">
@@ -25,7 +29,7 @@
       </div>
 
       <div class="field">
-        <%= collection_select :user, :neighborhoods, Neighborhood.all, :id, :name, {}, {:class => "form-control input-standard"} %>
+        <%= collection_select :neighborhood, :neighborhoods, Neighborhood.all, :id, :name, {}, {:class => "form-control input-standard"} %>
       </div><br>
 
       <button type="submit" class="btn btn-success btn-hg btn-block">Submit Changes</button>
