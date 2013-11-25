@@ -20,6 +20,10 @@
   display: none;
 }
 
+.photos {
+  padding-top: 20px;
+}
+
 .photos img {
   border: solid #EEE;
   position: relative;

@@ -1,7 +1,7 @@
 $(function(){
   $(".photo img").click(function(){
     var username, item, source;
-    username = $('.username').text();
+    username = $('.username').attr('data-username');
     item = $(this).parent().attr("id");
     source = "/users/" + username + "/items/" + item + "/edit";
     $("#edit_frame").attr('src', source);
@@ -21,7 +21,7 @@ $(function(){
 
     $.post(post_path, data, function(updated_photo){
       clicked_tag.parent().children("img").attr('src', updated_photo.photo_url);
-      clicked_tag.parent().children("span").text(updated_photo.name);
+      clicked_tag.parent().children("p").text(updated_photo.name);
     });
 
   });
