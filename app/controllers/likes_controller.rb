@@ -14,6 +14,7 @@ class LikesController < ApplicationController
 
   def show
     @user = current_user
+    @mutually_liked_users = User.mutually_liked_users(@user)
   end
 
   def destroy

@@ -6,11 +6,10 @@
     <div class="col-md-6">
       <h2>Mutual Likes</h2>
       <ul>
-        <% mutual_users = @user.inverse_liked_users.select {
-          |user| @user.liked_users.include?(user) } %>
-        <% mutual_users.each do |user| %>
+        <% @mutually_liked_users.each do |user| %>
           <li><%= link_to user.username, user %>
-            <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
+            <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Chat</a>
+            <a href="#" role="button" class="show_chat btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
           </li>
         <% end %>
       </ul>
