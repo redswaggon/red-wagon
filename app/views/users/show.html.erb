@@ -10,7 +10,7 @@
 
 <div class="row">
   <div class="photos container">
-    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-sm-1 col-md-1 col-lg-1" id="stranger-photos"></div>
       <% @user.items.each do |item| %>
         <div class="photo col-md-2" id="<%= item.id %>">
           <i class="glyphicon glyphicon-remove"></i>
