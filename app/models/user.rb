@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.username = "user#{user.provider}#{user.id}-#{user.uid}"
 
-      user.neighborhoods = [Neighborhood.find(params[:neighborhood][:neighborhoods])]
+      user.neighborhoods = [Neighborhood.find(:name => "Brooklyn")]
       5.times {user.items.build}
       user.save!
     end
