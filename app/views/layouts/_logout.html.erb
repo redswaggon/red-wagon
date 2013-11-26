@@ -1,6 +1,5 @@
 <form class="navbar-form navbar-right">
-  <%= link_to "Logout", destroy_session_path, {method: :delete, class: "btn btn-info"} %>
-  Signed in as <strong><%= current_user.name %></strong>!
-  <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-info" %>
 </form>
+<p class="navbar-text navbar-right">Signed in as <strong><%= current_user.name %></strong></p>
 <p class="navbar-text navbar-right"><% if !current_user.neighborhoods.empty? %><%= current_user.neighborhoods.first.name %><% end %></p>
