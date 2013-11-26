@@ -23,9 +23,10 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+                      <%= raise logged_in?.inspect %>
+
             <%= render "layouts/menu_items" if logged_in? %>
           </ul>
-          <%= raise logged_in?.inspect %>
             <% if logged_in? %>
               <%= render "layouts/logout" %>
             <% else %>
