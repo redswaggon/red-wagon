@@ -9,9 +9,9 @@ $(function(){
       user: user_id,
       stranger: stranger_id
       };
-      
+
     $.post("/likes/create", data, function(response){
-      alert(response.message);
+      $(".like-success").text(response.message).toggle("fast");
       setTimeout(function(){
         window.location = $('#next_wagon_button').attr('href');
         }, 800);
@@ -21,7 +21,7 @@ $(function(){
 
   $('.already_liked').click(function(e){
       e.preventDefault();
-      alert("Already liked!");
+      $(".like-success").text("Already liked. Moving you to next wagon.").toggle("fast");
       setTimeout(function(){
         window.location = $('#next_wagon_button').attr('href');
       }, 800);
