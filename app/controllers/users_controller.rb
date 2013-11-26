@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    redirect_to error_path unless current_user == params[:username]
+    redirect_to error_path unless current_user.username == params[:username]
   end
 
   def set_user
