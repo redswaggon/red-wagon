@@ -15,6 +15,7 @@ $(function(){
       setTimeout(function(){
         window.location = $('#next_wagon_button').attr('href');
         }, 800);
+        
       });
   });
 

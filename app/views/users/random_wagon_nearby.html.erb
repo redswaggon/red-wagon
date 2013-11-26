@@ -12,9 +12,11 @@
     <div class="photos-stranger">
       <% @stranger.items.each do |item| %>
         <div class="photo-stranger">
+          <% if item.photo.url != "/assets/missing.png" %>
           <%= image_tag item.photo.url(:square) %><br>
           <p class="text-center"><%= item.name %></p><br>
         </div>
+          <% end %>
       <% end %><br>
     </div>
   </div> <!-- End of photos div -->
