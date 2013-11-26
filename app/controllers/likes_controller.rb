@@ -2,8 +2,12 @@ class LikesController < ApplicationController
 
   def create
     if !Like.where(user_id: params[:user], liked_user_id: params[:stranger]).empty?
+      message = "Already liked."
     elsif Like.create(user_id: params[:user], liked_user_id: params[:stranger])
+      message = "Liked! Showing next wagon."
     end
+    response = { message: message }
+    render json: response
   end
 
   def show
@@ -18,6 +22,6 @@ class LikesController < ApplicationController
       message = "Couldn't find record."
     end
     response = { message: message }
-    render json: message
+    render json: response
   end
 end
