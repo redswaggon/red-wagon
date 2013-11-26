@@ -4,7 +4,7 @@ RedWagon::Application.routes.draw do
   match '/auth/failure', to: redirect('/login'), via: [:get, :post]
   match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  root :to => 'login'
+  root :to => 'sessions#new'
 
   get '/login' => 'sessions#new', as: "new_session"
   post '/sessions' => 'sessions#create', as: 'sessions'
