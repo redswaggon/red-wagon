@@ -1,0 +1,11 @@
+.message-box {
+  border: solid #EEE;
+  position: absolute;
+  display: block;
+  height: 150px;
+  width: auto;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px #888;
+  -moz-box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px #888;
+}
