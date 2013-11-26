@@ -18,6 +18,7 @@
   z-index: 900;
   left: 33%;
   display: none;
+  border-radius: 10px;
 }
 
 .photos, .photos-stranger {
@@ -141,6 +142,13 @@ img.bg {
   .photo {
     padding: 0px;
   }
+
+  #edit_frame {
+    height: 60%;
+    width: 45%;
+    top: 20%;
+    left: 25%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -152,6 +160,13 @@ img.bg {
   }
   .welcome .btn.btn-info.btn-lg {
     font-size: 0.8em;
+  }
+
+  #edit_frame {
+    height: 60%;
+    width: 60%;
+    top: 20%;
+    left: 20%;
   }
 }
 
@@ -173,6 +188,22 @@ img.bg {
   .photos > .photo .glyphicon {
     right: 5px;
   }
+
+  #edit_frame {
+    height: 60%;
+    width: 60%;
+    top: 20%;
+    left: 20%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+    #edit_frame {
+    height: 60%;
+    width: 70%;
+    top: 20%;
+    left: 15%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -191,5 +222,12 @@ img.bg {
     margin: 0;
     padding: 0;
     border: 0;
+  }
+
+  #edit_frame {
+    height: 70%;
+    width: 80%;
+    top: 10%;
+    left: 5%;
   }
 }

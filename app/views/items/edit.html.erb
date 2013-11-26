@@ -1,21 +1,44 @@
-<h2>Edit <%= @user.name %>'s Wagon</h2>
-
-<div id="add_photo_form">
-  <%= form_for @item, url: {action: "update", username: params[:username], id: params[:id]} do |f| %>
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %><br />
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Red Wagon</title>
+  <link href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+  <link href="/assets/bootstrap.min.css?body=1" media="all" rel="stylesheet" />
+  <link href="/assets/site.css?body=1" media="all" rel="stylesheet" />
+  <link href="/assets/users.css?body=1" media="all" rel="stylesheet" />
+  <script src="/assets/jquery.js?body=1"></script>
+  <script src="/assets/jquery_ujs.js?body=1"></script>
+  <script src="/assets/twitter/bootstrap.js?body=1"></script>
+  <script src="/assets/bootstrap.js?body=1"></script>
+  <script src="/assets/bootstrap.min.js?body=1"></script>
+  <script src="/assets/application.js?body=1"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="my-fluid-container">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+        <br>
+        <br>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h2 class="panel-title text-center">Edit <%= @user.name %>'s Wagon</h2>
+          </div>
+          <div id="panel-body">
+            <%= form_for @item, url: {action: "update", username: params[:username], id: params[:id]} do |f| %>
+              <div class="form-group">
+                <br>
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control input-standard", value: "Name: #{@item.name}" %>
+              </div>
+              <%= f.file_field :photo %><br>
+              <%= f.hidden_field :user_id, value: @user.id %>
+              <button type="submit" class="btn btn-success btn-block">Upload</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <div class="field">
-      <%= f.label :photo %><br />
-      <%= f.file_field :photo %><br />
-    </div>
-
-      <%= f.hidden_field :user_id, value: @user.id %><br />
-
-    <div id="submit_new_photo">
-      <%= f.submit "Upload" %>
-    </div>
-  <% end %>
-</div>
+  </div> <!-- /container -->
+</body>
+</html>
