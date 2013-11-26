@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :items
   
-  before_save { self.email = email.downcase }
+  # before_save { self.email = email.downcase }
 
   has_and_belongs_to_many :neighborhoods
 
