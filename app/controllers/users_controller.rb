@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create, :error, :error2]
   before_action :set_user, only: [:edit, :show, :random_wagon_nearby, :update, :destroy]
-  skip_before_action :require_login, only: [:new, :create]
   before_action :check_user, except: [:index, :new, :create, :show_limited_wagon]
 
   def index
