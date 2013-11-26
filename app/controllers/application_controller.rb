@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login
 
-  def login(username)
-    session[:username] = username
-  end
+  # def login(username)
+  #   session[:username] = username
+  # end
   # Custom Auth
   # def require_login
   #   redirect_to new_session_path unless !!current_user
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def current_user
-    @current_user ||= User.find_by(:username => session[:username]) if session[:username]
+    @current_user ||= User.find_by(:user_id => session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
 
