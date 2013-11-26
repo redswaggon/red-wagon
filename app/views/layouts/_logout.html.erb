@@ -3,4 +3,4 @@
   Signed in as <strong><%= current_user.name %></strong>!
   <%= link_to "Sign out", signout_path, id: "sign_out" %>
 </form>
-<p class="navbar-text navbar-right"><% if @user.neighborhoods.first.name %><%= @user.neighborhoods.first.name %><% end %></p>
+<p class="navbar-text navbar-right"><% if current_user.neighborhoods.first.name %><%= current_user.neighborhoods.first.name %><% end %></p>
