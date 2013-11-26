@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   # has_secure_password
   # # validates :name, presence: true, length: { maximum: 50 }
+  validates :username, uniqueness: {case_sensitive: false }
   # validates :email, presence:   true,
   #                   format:     { with: VALID_EMAIL_REGEX },
   #                   uniqueness: { case_sensitive: false }
@@ -44,6 +45,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.username = "user#{user.provider}#{user.id}-#{user.uid}"
       user.save!
     end
   end

@@ -12,11 +12,11 @@ NEIGHBORHOODS.each do |neighborhood|
   Neighborhood.create(name: neighborhood)
 end
 
-dan = User.create(name: "Daniel Chang", username: "supdelicious", email: "daniel.chang@flatironschool.com")
-5.times {dan.items.build(name: "Default")}
+# dan = User.create(name: "Daniel Chang", username: "supdelicious", email: "daniel.chang@flatironschool.com")
+# 5.times {dan.items.build(name: "Default")}
 
-mike = User.create(name: "Mike Spangler", username: "bikespangler", email: "mike.spangler@flatironschool.com")
-5.times {mike.items.build(name: "Default")}
+# mike = User.create(name: "Mike Spangler", username: "bikespangler", email: "mike.spangler@flatironschool.com")
+# 5.times {mike.items.build(name: "Default")}
 
 # MANHATTAN = [ "Harlem", "Inwood", "Morningside Heights", "SpaHa", "Midtown East", "Midtown West", "Upper East Side", "Upper West Side", "Hell's Kitchen", "Murray Hill", "Gramercy", "Union Square", "Meatpacking District", "Chelsea", "Greenwich Village", "East Village", "West Village", "NoHo", "SoHo", "TriBeCa", "Downtown", "Chinatown", "Lower East Side", "Alphabet City"]
 
