@@ -6,11 +6,6 @@ class User < ActiveRecord::Base
   has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
   has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
 
-  # has_many :chats
-  # has_many :chatted_users, :through => :chats#, :source => :user
-  # has_many :inverse_chats, :class_name => "Chat", :foreign_key => "chatted_user_id"
-  # has_many :inverse_chatted_users, :through => :inverse_chats, :source => :user
-
   has_many :messages, :through => :chats
 
   has_many :items

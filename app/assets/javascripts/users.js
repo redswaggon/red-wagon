@@ -36,25 +36,13 @@ $(function(){
     clicked_tag = $(this);
 
     $.post(post_path, data, function(response){
-      // clicked_tag.parent().remove();
-           
+      // clicked_tag.parent().remove();      
     });
   });
 
   $('.show_chat').click(function(e){
     e.preventDefault();
     $('.chat_form').toggle("fast");
-   
-
-    // var liked_id, post_path, data, clicked_tag;
-    // chatted_user_id = $(this).attr("data-like-id");
-    // post_path = "/chats/create";
-    // data = {id: chatted_user_id};
-    // clicked_tag = $(this);
-
-    // $.post(post_path, data, function(response){
-    // });
   });
  
-
 });
