@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def show_limited_wagon
-    
+    # Link to another user's wagon, only if they've liked you
   end
 
   def update
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    redirect_to error_path unless session[:username] == params[:username]
+    redirect_to error_path unless current_user == params[:username]
   end
 
   def set_user
