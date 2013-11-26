@@ -18,6 +18,7 @@
   z-index: 900;
   left: 33%;
   display: none;
+  border-radius: 10px;
 }
 
 .photos, .photos-stranger {
@@ -77,6 +78,7 @@ p.text-center {
   padding: 10px;
   font-family: 'Permanent Marker', cursive;
   font-size: 1.5em;
+  word-wrap: break-word;
 }
 
 img.bg {
@@ -96,9 +98,136 @@ img.bg {
   z-index: -1;
 }
 
-@media screen and (max-width: 1024px) {
+@media only screen and (max-width: 1195px) {
+  .photos > .photo .glyphicon {
+    right: 0;
+  }
+  .welcome h1 {
+    font-size: 1.5em;
+  }
+  .welcome p {
+    font-size: 0.9em;
+  }
+  .welcome .btn.btn-info.btn-lg {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .welcome h1 {
+    font-size: 1.3em;
+  }
+  .welcome p {
+    font-size: 0.8em;
+  }
+  .welcome .btn.btn-info.btn-lg {
+    font-size: 0.8em;
+  }
+
   img.bg {
     left: 50%;
     margin-left: -512px;   /* 50% */
+  }
+
+  .photos > .photo .glyphicon {
+    right: 36px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .photos > .photo .glyphicon {
+    right: 10px;
+  }
+
+  .photo {
+    padding: 0px;
+  }
+
+  #edit_frame {
+    height: 60%;
+    width: 45%;
+    top: 20%;
+    left: 25%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .welcome h1 {
+    font-size: 1em;
+  }
+  .welcome p {
+    font-size: 0.7em;
+  }
+  .welcome .btn.btn-info.btn-lg {
+    font-size: 0.8em;
+  }
+
+  #edit_frame {
+    height: 60%;
+    width: 60%;
+    top: 20%;
+    left: 20%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .welcome h1 {
+    font-size: 0.8em;
+  }
+  .welcome p {
+    font-size: 0.6em;
+  }
+  .welcome .btn.btn-info.btn-lg {
+    font-size: 0.7em;
+  }
+  .photo {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .photos > .photo .glyphicon {
+    right: 5px;
+  }
+
+  #edit_frame {
+    height: 60%;
+    width: 60%;
+    top: 20%;
+    left: 20%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+    #edit_frame {
+    height: 60%;
+    width: 70%;
+    top: 20%;
+    left: 15%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .like-button-div, .next-wagon-div {
+    display: block;
+    padding-top: 10px;
+  }
+
+  .next-wagon-div {
+    display: block;
+    padding-right: 34px;
+  }
+
+  .photo {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  #edit_frame {
+    height: 70%;
+    width: 80%;
+    top: 10%;
+    left: 5%;
   }
 }

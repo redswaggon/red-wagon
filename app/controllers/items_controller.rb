@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
 
   def default
     @item.photo = nil
-    @item.name = "click to upload image"
+    @item.name = "click to add"
     @item.save
     item = {
       name: "Click to add",
