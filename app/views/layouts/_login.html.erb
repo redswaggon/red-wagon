@@ -6,4 +6,7 @@
     <%= text_field_tag :password, nil, {type: "password", placeholder: "Password", class: "form-control"} %>
   </div>
   <%= submit_tag "Login", class: "btn btn-success" %>
+  <div class="form-group">
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary" %>
+  </div>
 <% end %>

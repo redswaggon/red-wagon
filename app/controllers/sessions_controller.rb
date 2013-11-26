@@ -16,15 +16,16 @@ class SessionsController < ApplicationController
   
 # OAUTH FACEBOOK
   def create
-    user = User.from_omniauth(request.env["omniauth.auth"])
+    auth = request.env["omniauth.auth"]
+    user = (User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth))
     session[:user_id] = user.id
-    redirect_to root_url
+    redirect_to user_path(user), notice: "Signed in!"
   end
 
   def destroy 
     session[:username] = nil
     reset_session
-    redirect_to root_path
+    redirect_to new_session_path, notice: "Signed out!"
   end
 
 end
