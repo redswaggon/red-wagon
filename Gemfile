@@ -43,8 +43,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
 # gem 'omniauth-oauth2', '~>1.0.3'
-# gem 'omniauth-facebook'
-# gem 'jquery-fileupload-rails'
+gem 'omniauth-facebook'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
