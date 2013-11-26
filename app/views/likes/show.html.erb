@@ -26,7 +26,11 @@
             <br>
             <div class="message-box">
             <% chat.messages.each do |message| %>
-              <br><li class="messages"><%= message.content %></li>
+              <% if message.start_with?(current_user.username) %>
+                <div class="my-message"> <%= message.content %></div> %>
+              <% else %>
+                <div class="other-message"> <%= message.content %></div> %>
+              <% end %>
             <% end %>
           </div>
 
