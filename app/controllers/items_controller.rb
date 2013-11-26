@@ -19,10 +19,8 @@ class ItemsController < ApplicationController
 
   def default
     @item.photo = nil
-    @item.name = "click to add"
     @item.save
     item = {
-      name: "Click to add",
       photo_url: "/assets/missing.png"
     }
     render json: item
@@ -35,7 +33,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :photo, :user_id)
+    params.require(:item).permit(:name, :photo, :user_id, :description)
   end
 
   def set_item

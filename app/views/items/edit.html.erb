@@ -22,14 +22,15 @@
         <br>
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h2 class="panel-title text-center">Edit <%= @user.name %>'s Wagon</h2>
+            <h2 class="panel-title text-center">Edit <%= @user.username %>'s Wagon</h2>
           </div>
           <div id="panel-body">
             <%= form_for @item, url: {action: "update", username: params[:username], id: params[:id]} do |f| %>
               <div class="form-group">
                 <br>
-                <%= f.label :name %>
-                <%= f.text_field :name, class: "form-control input-standard", value: "Name: #{@item.name}" %>
+       
+                <%= f.text_field :name, class: "form-control input-standard", placeholder: "Name #{@item.name}" %>
+              <!--    <%#= f.text_field :description, class: "form-control input-standard", placeholder: "Description #{@item.description}" %> -->
               </div>
               <%= f.file_field :photo %><br>
               <%= f.hidden_field :user_id, value: @user.id %>
