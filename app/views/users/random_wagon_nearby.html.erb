@@ -13,7 +13,7 @@
       <% @stranger.items.each do |item| %>
         <div class="photo-stranger">
           <% if item.photo.url != "/assets/missing.png" %>
-          <%= image_tag item.photo.url(:square) %><br>
+          <%= image_tag item.photo.url(:square), class: "stranger-img-tag" %><br>
           <p class="text-center"><%= item.name %></p><br>
         </div>
           <% end %>
@@ -37,6 +37,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="like-success alert alert-info"></div>
+    <div class="col-xs-4 col-md-4 col-md-4"></div>
+    <div class="like-success alert alert-info col-xs-4 col-md-4 col-md-4"></div>
+    <div class="col-xs-4 col-md-4 col-md-4"></div>
   </div>
 </div>
