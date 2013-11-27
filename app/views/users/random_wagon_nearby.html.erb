@@ -1,8 +1,8 @@
 <br>
 <br>
 <br>
-<div class="container">
-  <div class="row">
+<div class="row">
+  <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
     <h1 class="text-center"><%= @stranger.username.capitalize %>'s Wagon</h1>
   </div>
 </div>
@@ -11,12 +11,12 @@
   <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 photos-stranger">
     <div class="photos-stranger">
       <% @stranger.items.each do |item| %>
-        <div class="photo-stranger">
-          <% if item.photo.url != "/assets/missing.png" %>
-          <%= image_tag item.photo.url(:square) %><br>
-          <p class="text-center"><%= item.name %></p><br>
-        </div>
-          <% end %>
+        <% if item.photo.url != "/assets/missing.png" %>
+          <div class="photo-stranger">
+            <%= image_tag item.photo.url(:square), class: "stranger-img-tag" %><br>
+            <p class="text-center"><%= item.name %></p><br>
+          </div>
+        <% end %>
       <% end %><br>
     </div>
   </div> <!-- End of photos div -->
@@ -37,6 +37,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="like-success alert alert-info"></div>
+    <div class="col-xs-4 col-md-4 col-md-4"></div>
+    <div class="like-success alert alert-info col-xs-4 col-md-4 col-md-4"></div>
+    <div class="col-xs-4 col-md-4 col-md-4"></div>
   </div>
 </div>

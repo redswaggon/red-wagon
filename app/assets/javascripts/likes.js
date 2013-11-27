@@ -27,4 +27,8 @@ $(function(){
       }, 800);
     });
 
+  $('photo-stranger img').on("mouseover", function(){
+    // show the item description in a separate frame
+  });
+
 });
