@@ -24,9 +24,15 @@
 
             <!-- Show all messages -->
             <br>
+            <div class="message-box">
             <% chat.messages.each do |message| %>
-              <br><%= message.content %>
+              <% if message.content.start_with?(current_user.username) %>
+                <div class="my-message"> <%= message.content %></div> %>
+              <% else %>
+                <div class="other-message"> <%= message.content %></div> %>
+              <% end %>
             <% end %>
+          </div>
 
             <!-- Field to submit new message via jquery -->
             <%= form_tag Message.new, class: "chat_form" do %>
@@ -38,17 +44,6 @@
 
             <%= submit_tag "Send message" %>
             <% end %><br>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    
-    <div class="col-md-6">
-      <h2>Likes My Wagon</h2>
-      <ul>
-        <% current_user.inverse_liked_users.each do |user| %>
-          <li><%= link_to user.username, user %>
-            <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide</a>
           </li>
         <% end %>
       </ul>

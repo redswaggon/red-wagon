@@ -1,0 +1,20 @@
+.message-box {
+  border: solid black;
+  box-shadow: 5px 5px 5px #888;
+  -moz-box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px #888;
+}
+
+.my-message {
+  border: solid black;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background-color: cyan;
+}
+
+.other-message {
+  border: solid black;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background-color: yellow;
+}
