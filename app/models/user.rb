@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   def empty_wagon?
     empty = true
     self.items.each do |item|
-      empty = false if !item.photo_file_name.empty?
+      empty = false if !item.photo_file_name.nil?
     end
     empty
   end
