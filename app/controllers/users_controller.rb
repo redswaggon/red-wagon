@@ -63,11 +63,12 @@ class UsersController < ApplicationController
   private
 
   def wagons_nearby
-    @user.neighborhoods.first.users.reject {|u| @user == u}
+    @user.neighborhoods.first.users.reject {|user| (@user == user) || user.empty_wagon? }
   end
 
   def choose_stranger
-    @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)]
+    wagons_to_choose_from = wagons_nearby
+    @stranger = wagons_to_choose_from[rand(0..wagons_to_choose_from.size-1)]
   end
 
   def check_user

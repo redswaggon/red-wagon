@@ -38,6 +38,14 @@ class User < ActiveRecord::Base
     new_chat.save
   end
 
+  def empty_wagon?
+    empty = true
+    self.items.each do |item|
+      empty = false if !item.photo_file_name.empty?
+    end
+    empty
+  end
+
   def self.from_omniauth(auth)
     create! do |user|
       user.provider = auth.provider
