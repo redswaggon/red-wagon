@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     if wagons_nearby.empty?
       render "error2"
     else
-      @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)] 
+      choose_stranger 
     end
   end
 
@@ -64,6 +64,10 @@ class UsersController < ApplicationController
 
   def wagons_nearby
     @user.neighborhoods.first.users.reject {|u| @user == u}
+  end
+
+  def choose_stranger
+    @stranger = wagons_nearby[rand(0..@user.neighborhoods.first.users.size-2)]
   end
 
   def check_user
