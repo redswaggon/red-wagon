@@ -21,7 +21,8 @@ class ItemsController < ApplicationController
     @item.photo = nil
     @item.save
     item = {
-      photo_url: "/assets/missing.png"
+      photo_url: "/assets/missing.png",
+      name: " "
     }
     render json: item
   end
