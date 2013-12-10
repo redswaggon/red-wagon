@@ -1,11 +1,112 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  wagon_id: 
-  photo_file_path: MyString
-
-two:
-  name: MyString
-  wagon_id: 
-  photo_file_path: MyString
+dan_one:
+    name: "one"
+    user_id: 1
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo1.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+dan_two:
+    name: "two"
+    user_id: 1
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo2"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+dan_three:
+    name: "three"
+    user_id: 1
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo3.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+dan_four:
+    name: "four"
+    user_id: 1
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo4.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+dan_five:
+    name: "five"
+    user_id: 1
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo1.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+mike_one:
+    name: "one"
+    user_id: 2
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo1.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+mike_two:
+    name: "two"
+    user_id: 2
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo2.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+mike_three:
+    name: "three"
+    user_id: 2
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name: "photo3.jpg"
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+mike_four:
+    name:
+    user_id: 2
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name:
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"
+mike_five:
+    name:
+    user_id: 2
+    photo:
+    created_at: 2013-11-11 16:53:53
+    updated_at: 2013-11-11 16:53:53
+    photo_file_name:
+    photo_content_type: "image/jpeg"
+    photo_file_size: 
+    photo_updated_at: 2013-11-12 16:53:53
+    description: "description"

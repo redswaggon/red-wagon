@@ -1,15 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  provider: MyString
-  uid: MyString
-  name: MyString
-  oauth_token: MyString
+dan:
+  id: 1
+  provider: "facebook"
+  uid: "001"
+  name: "Daniel Chang"
+  oauth_token: "token001"
   oauth_expires_at: 2013-11-18 16:53:53
+  created_at: 2013-11-11 16:53:53
+  updated_at: 2013-11-12 16:53:53
+  email: "daniel.chang@flatironschool.com"
+  username: "danny"
+  password_digest: "danny55" 
 
-two:
-  provider: MyString
-  uid: MyString
-  name: MyString
-  oauth_token: MyString
-  oauth_expires_at: 2013-11-18 16:53:53
+mike:
+  id: 2
+  provider: "facebook"
+  uid: "002"
+  name: "Mike Spangler"
+  oauth_token: "token002"
+  oauth_expires_at: 2013-11-18 16:53:54
+  created_at: 2013-11-11 16:53:53
+  updated_at: 2013-11-12 16:53:53
+  email: "mike.spangler@flatironschool.com"
+  username: "mikey"
+  password_digest: "mikey55"
