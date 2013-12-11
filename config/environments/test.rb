@@ -33,4 +33,22 @@ RedWagon::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :bucket => ENV['S3_BUCKET_NAME'],
+  :s3_credentials => {
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+}
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+
+  FACEBOOK_APP_ID = ENV['FACEBOOK_APP_ID']
+  FACEBOOK_SECRET = ENV['FACEBOOK_SECRET']
+
 end
