@@ -12,10 +12,6 @@ describe User do
       email: "dan@example.com")
   end
 
-  after :each do
-    
-  end
-
   it "is valid with a unique username" do
     expect(@user).to be_valid
   end
@@ -34,21 +30,15 @@ describe User do
     expect(@user2.mutually_liked_users).to include @user
   end
 
-  # it "creates a chat given two user ids" do
-  #   @user.stub(:current_user) {@user}
-  #   @user.create_chat(user_id: @user.id, chatted_user_id: @user2.id)
-  #   expect(Chat.find_by(user_id: @user.id)).not_to be_empty
-  # end
+  context "determines if wagon is empty" do
+    it "wagon is empty" do
+      expect(@user.empty_wagon?).to be_true
+    end
 
-  it "returns true if a wagon is empty" do
-    pending
+    it "wagon has at least one item" do
+      @user2.items.create(photo_file_name: "test_file")
+      expect(@user2.empty_wagon?).to be_false
+    end
   end
 
-  it "returns false if a wagon has at least one item" do
-    pending
-  end
-
-  it "creates a user with valid attributes from an omniauth hash" do
-    pending
-  end
 end

@@ -32,12 +32,6 @@ class User < ActiveRecord::Base
       |user| self.liked_users.include?(user) }
   end
 
-  # def create_chat(hash)
-  #   new_chat = current_user.chats.build(hash)
-  #   new_chat.messages.build(:content => "this is a new message")
-  #   new_chat.save
-  # end
-
   def empty_wagon?
     empty = true
     self.items.each do |item|
