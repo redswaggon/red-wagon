@@ -13,11 +13,13 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
+  gem "growl_notify"
+  gem "guard-rspec"
 end
 
 group :test do
-  gem "faker"
   gem "capybara"
+  gem "faker"
   gem "database_cleaner"
   gem "launchy"
   gem "selenium-webdriver"

@@ -2,14 +2,8 @@ require 'spec_helper'
 
 describe User do
   before :each do
-    @user = User.create(
-      username: 'Aaron',
-      name: 'ASummers',
-      email: 'tester@example.com')
-    @user2 = User.create(
-      username: "danny",
-      name: "Dan",
-      email: "dan@example.com")
+    @user = create(:user, username: "bob")
+    @user2 = create(:user)
   end
 
   it "is valid with a unique username" do
@@ -17,7 +11,7 @@ describe User do
   end
 
   it "is invalid if the username already exists, no matter what casing" do
-    expect(User.new(username: "aaron")).to have(1).errors_on(:username)
+    expect(build(:user, username: "Bob")).to have(1).errors_on(:username)
   end
 
   it "returns the user's username when calling to_param" do

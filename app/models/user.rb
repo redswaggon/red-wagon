@@ -2,26 +2,19 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :likes
-  has_many :liked_users, :through => :likes#, :source => :user
+  has_many :liked_users, :through => :likes
   has_many :inverse_likes, :class_name => "Like", :foreign_key => "liked_user_id"
   has_many :inverse_liked_users, :through => :inverse_likes, :source => :user
-
   has_many :messages, :through => :chats
-
   has_many :items
-  
-  # before_save { self.email = email.downcase }
-
   has_and_belongs_to_many :neighborhoods
 
-  # has_secure_password
-  # # validates :name, presence: true, length: { maximum: 50 }
   validates :username, uniqueness: {case_sensitive: false }
+  # validates :name, presence: true, length: { maximum: 50 }
   # validates :email, presence:   true,
   #                   format:     { with: VALID_EMAIL_REGEX },
   #                   uniqueness: { case_sensitive: false }
-  # validates :password, length: { minimum: 6 }, :if => :password
-  # validates :password_confirmation, presence: true, :if => :password_confirmation
+  # before_save { self.email = email.downcase }
 
   def to_param
     username
