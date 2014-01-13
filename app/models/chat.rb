@@ -14,4 +14,5 @@ class Chat < ActiveRecord::Base
     else
       Chat.create(user_id: curr_user.id, chatted_user_id: liked_user.id)
     end 
+  end
 end
