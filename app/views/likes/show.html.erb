@@ -14,13 +14,7 @@
             <a href="#" role="button" class="hide_like btn btn-xs btn-default" data-like-id="<% user.likes.each do |like| %><%= like.id if like.liked_user_id == current_user.id %><% end %>">Hide (Forever)</a>
 
             <!-- Find the chat that matches this user and the current_user -->
-            <% if !Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).empty? %>
-              <% chat = Chat.where("user_id = ? AND chatted_user_id = ?", @user.id, user.id).first %>
-            <% elsif !Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).empty? %>
-              <% chat = Chat.where("chatted_user_id = ? AND user_id = ?", @user.id, user.id).first %>
-            <% else %>
-              <% chat = Chat.create(user_id: @user.id, chatted_user_id: user.id) %>
-            <% end %>
+            <% chat = Chat.create_or_find(@user, user) %>
 
             <!-- Show all messages -->
             <br>
