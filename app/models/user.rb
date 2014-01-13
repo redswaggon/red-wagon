@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  ITEMS_ALLOWED = 5
 
   has_many :likes
   has_many :liked_users, :through => :likes
@@ -10,19 +9,12 @@ class User < ActiveRecord::Base
   has_many :items
   has_and_belongs_to_many :neighborhoods
 
-  after_initialize :init_items
-
   validates :username, uniqueness: {case_sensitive: false }
-  validates :items, length: { is: ITEMS_ALLOWED }
   # validates :name, presence: true, length: { maximum: 50 }
   # validates :email, presence:   true,
   #                   format:     { with: VALID_EMAIL_REGEX },
   #                   uniqueness: { case_sensitive: false }
   # before_save { self.email = email.downcase }
-
-  def init_items
-    ITEMS_ALLOWED.times { items.build }
-  end
 
   def to_param
     username

@@ -2,10 +2,8 @@ require 'spec_helper'
 
 describe User do
   before :each do
-    @user = build(:user, username: "bob")
-    @user2 = build(:user)
-    @user.save
-    @user2.save
+    @user = create(:user, username: "bob")
+    @user2 = create(:user)
   end
 
   it "is valid with a unique username" do
@@ -34,19 +32,6 @@ describe User do
     it "wagon has at least one item" do
       @user2.items.create(photo_file_name: "test_file")
       expect(@user2.empty_wagon?).to be_false
-    end
-  end
-
-  context "initializes with 5 items" do  
-    it "is valid with 5 items" do
-      expect(@user.items.count).to eq(5)
-    end
-
-    it "is invalid with more than 5 items" do
-      user3 = build(:user)
-      user3.save
-      user3.items.create(name: "test")
-      expect(user3.items.count).to eq(7)
     end
   end
 
