@@ -16,9 +16,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    if (@user = User.create(user_params))
+    if (@user = User.build(user_params))
       @user.neighborhoods = [Neighborhood.find(params[:neighborhood][:neighborhoods])]
-      5.times {@user.items.build}
+      # 5.times {@user.items.build}
       @user.save!
       login(@user.username)
       redirect_to @user
