@@ -3,5 +3,11 @@ FactoryGirl.define do
     sequence(:username) { |n| "bob#{n}" }
     name "bob"
     sequence(:email) { |n| "bob#{n}@example.com" }
+
+    after(:build) do |user|
+      5.times do 
+        user.items << FactoryGirl.build(:item, user: user)
+      end
+    end
   end
 end

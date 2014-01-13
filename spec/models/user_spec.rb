@@ -35,4 +35,8 @@ describe User do
     end
   end
 
+  it "initializes with 5 items" do
+    expect(@user.items.count).to eq(5)
+  end
+
 end
