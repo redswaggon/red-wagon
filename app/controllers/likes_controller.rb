@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
 
   def create
-    if !Like.where(user_id: params[:user], liked_user_id: params[:stranger]).empty?
+    if Like.already_liked?(param[:user], params[:stranger])
       message = "Already liked."
     elsif Like.create(user_id: params[:user], liked_user_id: params[:stranger])
       message = "Liked! Showing next wagon."
