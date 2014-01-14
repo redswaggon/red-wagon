@@ -20,10 +20,12 @@ describe Chat do
     end
   end
 
-  context "Chat#generate" do
-    it "creates a chat if one does not exist" do
-      new_chat = Chat.generate(@dan, @mike)
-      expect(Chat.where("chatted_user_id = ?", @mike.id).first).to eq(new_chat)
+  context "generates or finds chats for a given user" do
+    context "chat not yet created" do
+      it "creates a chat if one does not exist" do
+        new_chat = Chat.generate(@dan, @mike)
+        expect(Chat.where("chatted_user_id = ?", @mike.id).first).to eq(new_chat)
+      end
     end
 
     context "chat already created" do 

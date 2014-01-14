@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Like do
-  describe "Like#already_liked?" do
-    context "user has already liked the other" do
+  describe "determines if a user already liked another" do
+    context "returns true if user has already liked the other" do
       it "returns true" do
         dan = create(:user)
         mike = create(:user)
@@ -11,7 +11,7 @@ describe Like do
       end
     end
 
-    context "user has not yet liked the other" do
+    context "returns false if user has not yet liked the other" do
       it "returns false" do
         dan = create(:user)
         mike = create(:user)
