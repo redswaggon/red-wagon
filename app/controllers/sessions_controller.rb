@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   def destroy 
     session[:username] = nil
     reset_session
-    redirect_to new_session_path, notice: "Signed out!"
+    redirect_to root_url, notice: "Signed out!"
   end
 
 end

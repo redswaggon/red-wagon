@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect_to user_path(current_user)
     else
-      redirect_to new_session_path
+      redirect_to root_url
     end
   end
 

@@ -3,17 +3,15 @@ RedWagon::Application.routes.draw do
 
   # Sessions and Facebook
   match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
-  match '/auth/failure', to: redirect('/login'), via: [:get, :post]
+  match '/auth/failure', to: redirect('/'), via: [:get, :post]
+    # ADD A FLASH NOTIFICATION HERE!
   match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  get '/login' => 'sessions#new', as: "new_session"
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
 
   # Users
-
   get '/users/error' => 'users#error', as: 'error'
-  
   get '/users' => 'users#index', as: 'users'
   post '/users' => 'users#create'
   get '/users/new' => 'users#new', as: 'new_user'
