@@ -60,6 +60,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def error
+    # NEXT STEPS: MAKE THE ERROR A FLASH NOTICE IN INDEX
+  end
+
+  def error2
+    # TURN INTO FLASH NOTICE
+  end
+
   private
 
   def wagons_nearby
