@@ -1,5 +1,5 @@
 RedWagon::Application.routes.draw do
-  # OMNIAUTH FACEBOOK
+  # Sessions
   match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
   match '/auth/failure', to: redirect('/login'), via: [:get, :post]
   match '/signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
@@ -9,6 +9,8 @@ RedWagon::Application.routes.draw do
   get '/login' => 'sessions#new', as: "new_session"
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
+
+  # Users
 
   get '/users/error' => 'users#error', as: 'error'
   
@@ -23,7 +25,7 @@ RedWagon::Application.routes.draw do
   
   get '/users/random_wagon_nearby/:username' => 'users#random_wagon_nearby', as: 'random_wagon_nearby'
 
-  # get '/users/:username/items/new' => 'items#new', as: 'new_user_item'
+  # Items
   get '/users/:username/items/:id/edit' => 'items#edit', as: 'edit_user_items'
   get '/users/:username/items/:id' => 'items#show', as: 'user_item'
   patch '/users/:username/items/:id' => 'items#update', as: 'item'
@@ -32,13 +34,12 @@ RedWagon::Application.routes.draw do
   get '/items/:id/success' => 'items#success', as: 'success'
   post '/items/:id' => 'items#default'
 
+  # Likes
   get '/likes/show' => 'likes#show', as: 'likes_show'
   post '/likes/create' => 'likes#create', as: 'create_like'
   post '/likes/destroy' => 'likes#destroy', as: 'destroy_like'
 
-  post '/chats/create' => 'chats#create', as: 'create_chat'
-
-  get '/chats/show' => 'chats#show', as: 'show_chats'
+  # Messages
   post "messages/create" => 'messages#create', as: "messages"
 
   # The priority is based upon order of creation: first created -> highest priority.
