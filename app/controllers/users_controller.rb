@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :error, :error2]
+  skip_before_action :require_login, only: [:new, :error, :error2]
   before_action :set_user, only: [:edit, :show, :random_wagon_nearby, :update, :destroy]
   before_action :check_user, except: [:index, :new, :create, :show_limited_wagon]
 
@@ -13,18 +13,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-  end
-
-  def create
-    if (@user = User.build(user_params))
-      @user.neighborhoods = [Neighborhood.find(params[:neighborhood][:neighborhoods])]
-      5.times {@user.items.build}
-      @user.save!
-      login(@user.username)
-      redirect_to @user
-    else
-      render "users/error"
-    end
   end
 
   def random_wagon_nearby
@@ -50,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    @user.destroy!
     redirect_to root_url
   end
 

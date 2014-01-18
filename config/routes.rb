@@ -11,16 +11,14 @@ RedWagon::Application.routes.draw do
   delete '/sessions' => 'sessions#destroy', as: 'destroy_session'
 
   # Users
-  get '/users/error' => 'users#error', as: 'error'
-  get '/users' => 'users#index', as: 'users'
-  post '/users' => 'users#create'
-  get '/users/new' => 'users#new', as: 'new_user'
-  get '/users/:username/edit' => 'users#edit', as: 'edit_user'
-  get '/users/:username' => 'users#show', as: 'user'
-  delete '/users/:username' => 'users#destroy'
   put '/users/:username' => 'users#update'
   patch '/users/:username' => 'users#update'
-  
+  get '/users/:username' => 'users#show', as: 'user'
+  delete '/users/:username' => 'users#destroy'
+  get '/users' => 'users#index', as: 'users'
+  get '/users/new' => 'users#new', as: 'new_user'
+  get '/users/:username/edit' => 'users#edit', as: 'edit_user'
+  get '/users/error' => 'users#error', as: 'error'
   get '/users/random_wagon_nearby/:username' => 'users#random_wagon_nearby', as: 'random_wagon_nearby'
 
   # Items
