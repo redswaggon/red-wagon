@@ -1,25 +1,26 @@
 require 'spec_helper'
 
-feature 'User Log in and Editing' do
-  background do
-    create(:neighborhood)
-  end
-
-  scenario "logs in from main page" do
+feature 'User Profile Management' do
+  scenario "logs in from main page and edits profile" do
     visit root_path
     expect(page).to have_content "Howdy!"
     expect(page).not_to have_content "My Wagon"
     expect(page).to have_content "Sign in with Facebook"
 
-    click_link "Sign in with Facebook"
-
-    expect(page).to have_content "Edit"
-
-    fill_in "Username", with: "Boberty"
-    fill_in "Email", with: "bob@example.com"
-
-    click_button "Submit Changes"
-
+    sign_in_new_user
     expect(page).to have_content "Boberty's Wagon"
   end
+
+  scenario "delete account"
+end
+
+feature "Wagon Image Management" do
+  # Image specs here because they're on users#show
+  # Item management happens on IFrames
+  background do
+    sign_in_new_user
+  end
+
+  scenario "Adds an image"#, js: true do
+  scenario "Deletes an image"#, js: true do
 end
