@@ -139,6 +139,7 @@ describe UsersController do
 
         it "redirects to the updated contact's #show path" do
           put :update, username: @user, user: attributes_for(:user, username: "Bobby"), neighborhood: { neighborhoods: @bw.id }
+          @user.reload
           expect(response).to redirect_to @user
         end
       end
@@ -151,7 +152,7 @@ describe UsersController do
         end
 
         it "redirects to root url sessions#new" do
-          delete :destroy, username: @user.id
+          delete :destroy, username: @user
           expect(response).to redirect_to root_url
         end
       end
