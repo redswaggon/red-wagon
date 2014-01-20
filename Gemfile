@@ -23,6 +23,7 @@ group :test do
   gem "database_cleaner"
   gem "launchy"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
