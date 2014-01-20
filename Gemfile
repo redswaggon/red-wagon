@@ -8,6 +8,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'pry'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
 end
 
 group :development, :test do

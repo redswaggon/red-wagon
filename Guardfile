@@ -1,6 +1,8 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
+# use following line and comment line 6 if you only want to spec tagged items
+# guard :rspec, cmd: 'rspec --tag focus --color --format documentation' do
 guard :rspec, cmd: 'rspec --color --format documentation' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
