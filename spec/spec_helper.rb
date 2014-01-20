@@ -31,6 +31,10 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
 
+  # Use the following to filter RSpec running with tags
+  # config.filter_run focus: true
+  # config.filter_run_excluding slow: true
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
