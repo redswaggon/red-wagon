@@ -10,11 +10,6 @@ class LikesController < ApplicationController
     render json: response
   end
 
-  def show
-    @user = current_user
-    @mutually_liked_users = @user.mutually_liked_users
-  end
-
   def destroy
     if Like.find(params[:id]).destroy
       message = "Deleted."

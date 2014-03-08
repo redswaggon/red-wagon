@@ -1,6 +1,6 @@
 <% if current_user %>
   <li><%= link_to "My Wagon", current_user %></li>
   <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-  <li><%= link_to "My Likes", likes_show_path %></li>
+  <li><%= link_to "My Chats", user_chats_path(current_user) %></li>
   <li><%= link_to "Show Me The Wagons!", random_wagon_nearby_path(username: current_user.username) %></li>
 <% end %>

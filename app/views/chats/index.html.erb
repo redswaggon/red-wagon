@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Mutual Likes</h2>
+      <ul>
+       <p>
+          <% @chats.each do |chat| %>
+            <%= link_to "Chat With #{User.find(chat.chatted_user_id).username}", user_chat_path(current_user,chat)%>
+            <!-- Show all messages -->
+              <br>
+              <div class="message-box">
+              <% chat.messages.each do |message| %>
+                <% if message.content.start_with?(current_user.username) %>
+                  <div class="my-message"> <%= message.content %></div>
+                <% else %>
+                  <div class="other-message"> <%= message.content %></div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </p>
+      </ul>
+    </div>
+  </div>
+</div>

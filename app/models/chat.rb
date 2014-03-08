@@ -6,6 +6,12 @@ class Chat < ActiveRecord::Base
   validates :user_id, presence: true
   validates :chatted_user_id, presence: true
 
+  def self.find_all_chats(user)
+    user.mutually_liked_users.map do |liked_user|
+      Chat.generate(user, liked_user)
+    end
+  end
+
   def self.generate(curr_user, liked_user)
     if !Chat.where("user_id = ? AND chatted_user_id = ?", curr_user.id, liked_user.id).empty?
       Chat.where("user_id = ? AND chatted_user_id = ?", curr_user.id, liked_user.id).first
@@ -13,6 +19,6 @@ class Chat < ActiveRecord::Base
       Chat.where("chatted_user_id = ? AND user_id = ?", curr_user.id, liked_user.id).first
     else
       Chat.create(user_id: curr_user.id, chatted_user_id: liked_user.id)
-    end 
+    end
   end
 end

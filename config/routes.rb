@@ -31,9 +31,13 @@ RedWagon::Application.routes.draw do
   post '/items/:id' => 'items#default'
 
   # Likes
-  get '/likes/show' => 'likes#show', as: 'likes_show'
   post '/likes/create' => 'likes#create', as: 'create_like'
   post '/likes/destroy' => 'likes#destroy', as: 'destroy_like'
+
+  # Chats
+  resources :users do
+    resources :chats, only: [:index, :show]
+  end
 
   # Messages
   post "messages/create" => 'messages#create', as: "messages"
@@ -78,7 +82,7 @@ RedWagon::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
